@@ -1,0 +1,8 @@
+# testing
+/output/.json
+
+# security
+/security
+
+# cash
+/__pycache__

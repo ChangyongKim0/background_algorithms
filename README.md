@@ -40,9 +40,9 @@
 
 > > `land_data_agent.py:` 토지 데이터 저장하는 코드
 
-> > `logger:` 고급 로거를 만들려고 생각중.. 아직 작성안함.
+> > `logger.py:` 고급 로거를 만들려고 생각중.. 아직 작성안함.
 
-> > `yamlToList:` yaml 파일을 list로 바꾸어주는 코드
+> > `yamlToList.py:` yaml 파일을 list로 바꾸어주는 코드
 
 > **output**
 >
@@ -60,10 +60,9 @@
 
 ```json
 {
-    "API 타입": "키값",
-	"land_use_WFS": "XXXXXX",
-    ...
-    "land_use_WMS": "XXXXXX"
+  "API 타입": "키값",
+  "land_use_WFS": "XXXXXX",
+  "land_use_WMS": "XXXXXX"
 }
 ```
 

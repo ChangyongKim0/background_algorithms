@@ -1,8 +1,12 @@
 # testing
-/output/.json
+/output/
 
 # security
-/security
+/security/
 
 # cash
 /__pycache__
+/*/__pycache__
+
+#old file
+/**/old

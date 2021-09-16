@@ -1,0 +1,64 @@
+{
+	"api_list_to_request": {
+		"land": [
+			"land_char_WFS",
+			"land_use_WFS",
+			"land_own_WFS",
+			"land_price"
+		]
+	},
+	"api_key_list":{
+		"land_char_WFS": {
+            "authkey_name": "ServiceKey",
+			"base_url": "http://apis.data.go.kr/1611000/nsdi/LandCharacteristicsService/wfs/getLandCharacteristicsWFS",
+			"base_inputs": {
+				"typename": "F251",
+				"maxFeatures": "500",
+				"srsName": "EPSG:4326",
+				"resultType": "results"
+			},
+			"required_input_list": ["pnu"],
+            "filter_output": ["NSDI:PNU"],
+			"required_output_list": ["NSDI:PNU","gml:posList","NSDI:REGSTR_SE_CODE","NSDI:LNDCGR_CODE","NSDI:LNDCGR_CODE_NM","NSDI:LNDPCL_AR","NSDI:LAD_USE_SITTN","NSDI:LAD_USE_SITTN_NM","NSDI:TPGRPH_HG_CODE","NSDI:TPGRPH_HG_CODE_NM","NSDI:TPGRPH_FRM_CODE","NSDI:TPGRPH_FRM_CODE_NM","NSDI:ROAD_SIDE_CODE","NSDI:ROAD_SIDE_CODE_NM","NSDI:FRST_REGIST_DT"]
+		},
+		"land_use_WFS": {
+            "authkey_name": "ServiceKey",
+			"base_url": "http://apis.data.go.kr/1611000/nsdi/LandUseService/wfs/getLandUseWFS",
+			"base_inputs": {
+				"typename": "F176",
+				"maxFeatures": "500",
+				"resultType": "results",
+				"srsName": "EPSG:4326"
+			},
+			"required_input_list": ["pnu"],
+            "filter_output": ["NSDI:PNU"],
+			"required_output_list": ["NSDI:PNU","NSDI:PRPOS_AREA_DSTRC_CODE_LIST","NSDI:PRPOS_AREA_DSTRC_NM_LIST","NSDI:CNFLC_AT_LIST","NSDI:FRST_REGIST_DT"]
+		},
+		"land_own_WFS": {
+            "authkey_name": "ServiceKey",
+			"base_url": "http://apis.data.go.kr/1611000/nsdi/PossessionService/wfs/getPossessionWFS",
+			"base_inputs": {
+				"typename": "F173",
+				"maxFeatures": "500",
+				"resultType": "results",
+				"srsName": "EPSG:4326"
+			},
+			"required_input_list": ["pnu"],
+            "filter_output": ["NSDI:PNU"],
+			"required_output_list": ["NSDI:PNU","NSDI:POSESN_SE_CODE","NSDI:LBL","NSDI:CNRS_PSN_CO","NSDI:AGRDE_SE_CODE","NSDI:RESDNC_SE_CODE","NSDI:OWNSHIP_CHG_CAUSE_CODE","NSDI:OWNSHIP_CHG_DE","NSDI:NATION_INSTT_SE_CODE","NSDI:FRST_REGIST_DT"]
+		},
+		"land_price": {
+            "authkey_name": "ServiceKey",
+			"base_url": "http://apis.data.go.kr/1611000/nsdi/IndvdLandPriceService/wfs/getIndvdLandPriceWFS",
+			"base_inputs": {
+				"typename": "F166",
+				"maxFeatures": "500",
+				"resultType": "results",
+				"srsName": "EPSG:4326"
+			},
+			"required_input_list": ["pnu"],
+            "filter_output": ["NSDI:PNU"],
+			"required_output_list": ["NSDI:PNU","NSDI:PBLNTF_PCLND_STDR_YEAR","NSDI:PBLNTF_PCLND_STDR_MT","NSDI:STD_LAND_AT","NSDI:PBLNTF_PCLND","NSDI:PSTYR_1_PBLNTF_PCLND","NSDI:PSTYR_2_PBLNTF_PCLND","NSDI:PSTYR_3_PBLNTF_PCLND","NSDI:PSTYR_4_PBLNTF_PCLND","NSDI:FRST_REGIST_DT"]
+		}
+	}
+}

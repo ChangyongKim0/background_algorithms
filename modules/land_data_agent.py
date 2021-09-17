@@ -2,11 +2,22 @@ import os
 import datetime
 import json
 import api_agent
+import math
 
 
 class LandDataAgent:
-    # def __init__(self):
-    #     api_requester = ApiRequester()
+    def __init__(self, echo=True, echo_error=True):
+        self.get_api = api_agent.ApiAgent("land")
+        self.echo = echo
+        self.echo_error = echo_error
+
+    def log(self, content):
+        if self.echo:
+            print('LandDataAgent> \033[92m{}'.format(content) + '\033[0m')
+
+    def errlog(self, content):
+        if self.echo_error:
+            print('LandDataAgent> \033[91m{}'.format(content) + '\033[0m')
 
     def _createKey(self, dict, key):
         if key not in dict.keys():
@@ -46,7 +57,8 @@ class LandDataAgent:
 
         if service_name in config_data.keys():
             if action == "create":
-                print("Error: the service already exist. Create after delete it.")
+                self.errlog(
+                    "the service already exist. Create after delete it.")
                 return -1
 
         config_data[service_name] = {"base_date": base_date,
@@ -72,19 +84,82 @@ class LandDataAgent:
     #     with open("{}/../configs/api_preset.json".format(os.path.dirname(__file__)), "r") as f:
     #         auth_key = json.load(f)
     #     return auth_key["api_key_list"][api_type]
+    def _createDir(self, dir_path):
+        if not os.path.isdir(dir_path):
+            os.mkdir(dir_path)
+        return dir_path
+
+    def _getLatLngCode(self, feature_string, threshold):
+        latlng_list = feature_string.split(" ")
+        lat_list = [float(latlng_list[2*i])
+                    for i in range(len(latlng_list)//2)]
+        lng_list = [float(latlng_list[2*i+1])
+                    for i in range(len(latlng_list)//2)]
+        return str(math.floor(min(lat_list)*threshold)), str(math.floor(min(lng_list)*threshold))
+
+    def _saveLatLngCodeData(self, service_name):
+        file_path = "{}/../data/land_data/raw/{}".format(
+            os.path.dirname(__file__), service_name)
+        if not os.path.isfile(file_path+"/land_char_WFS.json"):
+            self.errlog(
+                "cannot find land_char_WFS.json file, thus cannot load feature data.")
+            return -1
+        with open(file_path+"/land_char_WFS.json", "r", encoding='UTF8') as f:
+            data = json.load(f)
+        distribution_data = {}
+        for each_data in data:
+            lat, lng = self._getLatLngCode(each_data["gml:posList"], 400)
+            distribution_data[each_data["NSDI:PNU"]] = {
+                "lat_code": lat, "lng_code": lng}
+        return distribution_data
+
+    def _distributeDataByLonLat(self, service_name):
+        distribution_data = self._saveLatLngCodeData(service_name)
+        if distribution_data == -1:
+            return -1
+        file_list = os.listdir(
+            "{}/../data/land_data/raw/{}".format(os.path.dirname(__file__), service_name))
+        giant_data = {}
+        for file_name in file_list:
+            with open("{}/../data/land_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, file_name), "r", encoding="utf-8") as f:
+                data = json.load(f)
+            for each_data in data:
+                pnu = each_data["NSDI:PNU"]
+                latlng = distribution_data[each_data["NSDI:PNU"]]
+                lat, lng = latlng["lat_code"], latlng["lng_code"]
+                if lat not in giant_data.keys():
+                    giant_data[lat] = {}
+                if lng not in giant_data[lat].keys():
+                    giant_data[lat][lng] = {}
+                if pnu not in giant_data[lat][lng].keys():
+                    giant_data[lat][lng][pnu] = {
+                        "pnu": pnu, "service_name": service_name}
+                giant_data[lat][lng][pnu][file_name.split(".")[0]] = each_data
+        file_path = "{}/../data/land_data".format(os.path.dirname(__file__))
+        dist_file_path = self._createDir(file_path+"/dist")
+        for lat, lat_data in giant_data.items():
+            self._createDir(dist_file_path+"/"+lat)
+            for lng, lng_data in lat_data.items():
+                data_list = []
+                for val in lng_data.values():
+                    data_list.append(val)
+                with open("{}/{}/{}.json".format(dist_file_path, lat, lng), "w", encoding="utf-8") as f:
+                    json.dump(data_list, f, indent=4, ensure_ascii=False)
 
     def create(self, service_name_list):
-        get_api = api_agent.ApiAgent("land")
         config_data = self._getConfig("land_service")
         input_list = []
         for service in service_name_list:
             for key, val in config_data[service]["organized_pnu_list"].items():
                 input_list.append({"pnu": key, "filter_output": val})
-            get_api.getApi(
+            self.get_api.getApi(
                 "{}/../data/land_data/raw/{}".format(os.path.dirname(__file__), service), input_list)
+            self._distributeDataByLonLat(service)
+        self.log("data successfully distributed")
 
 
 if __name__ == "__main__":
     land_data_agent = LandDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
-    land_data_agent.create(["GBD"])
+    # land_data_agent.create(["GBD"])
+    land_data_agent._distributeDataByLonLat("GBD")

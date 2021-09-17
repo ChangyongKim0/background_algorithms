@@ -16,21 +16,21 @@
 
 # 파일 및 폴더 세팅
 
-> configs
+> `configs`
 >
 > > 설정 파일들이 위치함
 
-> data
+> `data`
 >
 > > 데이터가 쌓여지는 공간.  
 > > 현재 `land_data/raw/GBD` 안에 raw data 위치
 
-> input
+> `input`
 >
 > > 인풋을 넣어두는 곳.  
 > > `pnu_list.txt` 한번 확인하면 좋음.
 
-> modules
+> `modules`
 >
 > > 필요한 알고리즘들이 들어 있는 폴더.
 
@@ -48,6 +48,10 @@
 >
 > > **만들어야 하는 폴더!!**  
 > > db에 쌓을 필요 없는 출력 데이터 저장용.
+
+> `sample_code`
+>
+> > 코드 사용 용례가 들어있는 폴더.
 
 > **security**
 >
@@ -67,3 +71,8 @@
 ```
 
 > > > API 타입은 `configs/api_preset.json`에 있는 것과 동일해야 함.
+
+> **user_code**
+>
+> > **만들어야 하는 폴더!!**  
+> > 이 안으로 `sample_code` 안에 있는 파일을 복사하여 사용할 것.

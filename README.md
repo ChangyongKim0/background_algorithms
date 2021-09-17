@@ -14,6 +14,18 @@
    git clone https://github.com/ChangyongKim0/background_algorithms.git
    ```
 
+1. 이후 수정된 데이터를 동기화하는 방식은 다음 중 한 방식으로 하면 됨.
+
+- 동일 폴더 내에서 터미널에 다음 입력
+
+  ```terminal
+  git pull
+  ```
+
+- VSCode의 Source Control에서 pull 적용
+
+  ![git pull](git_pull_illustration.JPG)
+
 # 파일 및 폴더 세팅
 
 > `configs`

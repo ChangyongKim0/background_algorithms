@@ -7,6 +7,11 @@
 			"land_price"
 		]
 	},
+	"translate":{
+		"NSDI:PNU": "NSDI:PNU",
+		"gml:posList": "gml:posList",
+		"NSDI:REGSTR_SE_CODE": "NSDI:REGSTR_SE_CODE"
+	},
 	"api_key_list":{
 		"land_char_WFS": {
             "authkey_name": "ServiceKey",

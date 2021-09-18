@@ -92,3 +92,38 @@ const a = 1;
 \-\-\- (수평선)
 
 ---
+
+<br></br>
+<br></br>
+
+# 수식
+
+\$ $T:\cal C \to C$ \$ 이렇게 달러 표시를 사용.
+
+\$\$
+
+$$
+T: \cal C \to C
+$$
+
+\$\$
+
+모나드(monad)란 category $\cal C$ 에 대해 endofunctor $\cal C\to C$ 를 objectㄹ 갖고 이들 간의 natural transformation을 functo로 갖는 endofuntor category $\rm{End}(\cal C)$ 의 monoid를 말한다.
+
+구체적으로, 모나드는 다음과 같이 구성된다.
+
+> (원소) endofunctor $T:\cal C \to C$,
+
+> (항등원) natural transformation $\eta: 1_{\cal C} \Rightarrow T$,
+
+> (합성) natural tranformation $\mu: T^2 \Rightarrow T$.
+
+이들은 임의의 대상 {\displaystyle A\in {\mathcal {C}}}A\in {\mathcal C}에 대하여 다음 세 그림들을 가환되게 하여야 한다.
+
+> (결합 법칙) 임의의 대상 $A\in {\mathcal  C}$ 에 대하여, $T\mu _{A}\circ \mu _{A}=\mu _{{TA}}\circ \mu _{A}$ .  
+> 즉, 다음 그림이 가환한다.
+> $$ {\begin{matrix}TTTA&{\xrightarrow {T\mu }}&TTA\\{\scriptstyle \mu }\downarrow &&\downarrow \scriptstyle \mu \\TTA&{\xrightarrow[ {\mu }]{}}&TA\end{matrix}} $$
+
+> (항등원의 성질) 임의의 대상 $A\in {\mathcal  C}$에 대하여, $\eta_{{TA}} \circ \mu_{A}=T\eta_{A} \circ \mu_{A}=\operatorname {id}_{A}$ .  
+> 즉, 다음 두 그림이 가환한다.
+> $${\begin{matrix}TA&{\xrightarrow  \eta }&TTA\\&{\scriptstyle \operatorname {id}}\searrow &\downarrow \scriptstyle \mu \\&&TA\end{matrix}}\qquad \qquad {\begin{matrix}TA&{\xrightarrow  {T\eta }}&TTA\\&{\scriptstyle \operatorname {id}}\searrow &\downarrow \scriptstyle \mu \\&&TA\end{matrix}}$$

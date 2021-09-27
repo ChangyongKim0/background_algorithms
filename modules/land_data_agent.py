@@ -84,6 +84,7 @@ class LandDataAgent:
     #     with open("{}/../configs/api_preset.json".format(os.path.dirname(__file__)), "r") as f:
     #         auth_key = json.load(f)
     #     return auth_key["api_key_list"][api_type]
+
     def _createDir(self, dir_path):
         if not os.path.isdir(dir_path):
             os.mkdir(dir_path)
@@ -146,6 +147,36 @@ class LandDataAgent:
                 with open("{}/{}/{}.json".format(dist_file_path, lat, lng), "w", encoding="utf-8") as f:
                     json.dump(data_list, f, indent=4, ensure_ascii=False)
 
+    def createDBType(self, service_name):
+        distribution_data = self._saveLatLngCodeData(service_name)
+        giant_data = {}
+        key_list = []
+        file_list = os.listdir(
+            "{}/../data/land_data/raw/{}".format(os.path.dirname(__file__), service_name))
+        for file_name in file_list:
+            with open("{}/../data/land_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, file_name), "r", encoding="utf-8") as f:
+                data = json.load(f)
+            for key in data[0].keys():
+                key_list.append(key)
+            for each_data in data:
+                pnu = each_data["NSDI:PNU"]
+                latlng = distribution_data[pnu]
+                lat, lng = latlng["lat_code"], latlng["lng_code"]
+                if pnu not in giant_data.keys():
+                    giant_data[pnu] = {"lat_code": lat, "lng_code": lng}
+                for key, val in each_data.items():
+                    giant_data[pnu][key] = val
+        key_list = set(key_list)
+        scheme = {}
+        for key in key_list:
+            if ("_PCLND" in key) or ("_code" in key):
+                scheme[key] = "int"
+            else:
+                scheme[key] = "str"
+        dict_list = {"scheme": scheme, "data": giant_data}
+        with open("{}/../output/land_data_db_type.json".format(os.path.dirname(__file__)), "w", encoding="utf-8") as f:
+            json.dump(dict_list, f, indent=4, ensure_ascii=False)
+
     def create(self, service_name_list):
         config_data = self._getConfig("land_service")
         input_list = []
@@ -162,4 +193,5 @@ if __name__ == "__main__":
     land_data_agent = LandDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
     # land_data_agent.create(["GBD"])
-    land_data_agent._distributeDataByLonLat("GBD")
+    # land_data_agent._distributeDataByLonLat("GBD")
+    land_data_agent.createDBType("GBD")

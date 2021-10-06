@@ -129,8 +129,8 @@ class LandDataAgent:
             for each_data in data:
                 pnu = each_data["NSDI:PNU"]
                 latlng = distribution_data[each_data["NSDI:PNU"]]
-                self.log(latlng)
-                self.errlog(some data is )
+                # self.log(latlng)
+                # self.errlog(some data is )
                 lat, lng = latlng["lat_code"], latlng["lng_code"]
                 if lat not in giant_data.keys():
                     giant_data[lat] = {}
@@ -198,6 +198,6 @@ class LandDataAgent:
 if __name__ == "__main__":
     land_data_agent = LandDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
-    # land_data_agent.create(["CBD"])
-    land_data_agent._distributeDataByLonLat("CBD")
+    land_data_agent.create(["CBD"])
+    # land_data_agent._distributeDataByLonLat("CBD")
     # land_data_agent.createDBType("GBD")

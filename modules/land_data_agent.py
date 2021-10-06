@@ -3,11 +3,13 @@ import datetime
 import json
 import api_agent
 import math
+import code_translator
 
 
 class LandDataAgent:
     def __init__(self, echo=True, echo_error=True):
         self.get_api = api_agent.ApiAgent("land")
+        self.code_translator = code_translator.CodeTranslator()
         self.echo = echo
         self.echo_error = echo_error
 
@@ -127,6 +129,8 @@ class LandDataAgent:
             for each_data in data:
                 pnu = each_data["NSDI:PNU"]
                 latlng = distribution_data[each_data["NSDI:PNU"]]
+                self.log(latlng)
+                self.errlog(some data is )
                 lat, lng = latlng["lat_code"], latlng["lng_code"]
                 if lat not in giant_data.keys():
                     giant_data[lat] = {}
@@ -134,8 +138,10 @@ class LandDataAgent:
                     giant_data[lat][lng] = {}
                 if pnu not in giant_data[lat][lng].keys():
                     giant_data[lat][lng][pnu] = {
-                        "pnu": pnu, "service_name": service_name}
-                giant_data[lat][lng][pnu][file_name.split(".")[0]] = each_data
+                        "id": pnu, "service_name": service_name}
+                for each_key, each_val in each_data.items():
+                    giant_data[lat][lng][pnu][self.code_translator.translate(
+                        file_name.split(".")[0], each_key)] = each_val
         file_path = "{}/../data/land_data".format(os.path.dirname(__file__))
         dist_file_path = self._createDir(file_path+"/dist")
         for lat, lat_data in giant_data.items():
@@ -192,6 +198,6 @@ class LandDataAgent:
 if __name__ == "__main__":
     land_data_agent = LandDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
-    # land_data_agent.create(["GBD"])
-    # land_data_agent._distributeDataByLonLat("GBD")
-    land_data_agent.createDBType("GBD")
+    # land_data_agent.create(["CBD"])
+    land_data_agent._distributeDataByLonLat("CBD")
+    # land_data_agent.createDBType("GBD")

@@ -1,750 +1,634 @@
 [
     {
-        "pnu": "1168010100106530001",
+        "id": "1168010100106530001",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106530001",
-            "gml:posList": "127.03775208 37.50831106 127.03786179 37.50808064 127.03800285 37.50812295 127.03789314 37.50835355 127.03775208 37.50831106",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "364.7",
-            "NSDI:LAD_USE_SITTN": "210",
-            "NSDI:LAD_USE_SITTN_NM": "상업용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "03",
-            "NSDI:TPGRPH_FRM_CODE_NM": "세로장방",
-            "NSDI:ROAD_SIDE_CODE": "01",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대로한면",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
+        "LNOD_PNU": "1168010100106530001",
+        "LNOD_PS": {
+            "@xsi:nil": "true"
         },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106530001",
-            "NSDI:POSESN_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:LBL": "공유지",
-            "NSDI:CNRS_PSN_CO": "3",
-            "NSDI:AGRDE_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:RESDNC_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_DE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:NATION_INSTT_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
+        "LNOD_LBL": "공유지",
+        "LNOD_N": "3",
+        "LNOD_AG": {
+            "@xsi:nil": "true"
         },
-        "land_price": {
-            "NSDI:PNU": "1168010100106530001",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "1",
-            "NSDI:PBLNTF_PCLND": "26050000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "21500000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "18200000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "16000000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "15500000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
+        "LNOD_RS": {
+            "@xsi:nil": "true"
         },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106530001",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,2,1,1,2,2,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_CH": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_CH_DT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_NT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106530001",
+        "LNSD_PRP_DSTRC": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,2,1,1,2,2,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106530001",
+        "LND_SHAPE": "127.03775208 37.50831106 127.03786179 37.50808064 127.03800285 37.50812295 127.03789314 37.50835355 127.03775208 37.50831106",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "364.7",
+        "LND_USE": "210",
+        "LND_USE_NM": "상업용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "03",
+        "LND_FR_NM": "세로장방",
+        "LND_RD": "01",
+        "LND_RD_NM": "광대로한면",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106530001",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "1",
+        "LNPD_PY0": "26050000",
+        "LNPD_PY1": "21500000",
+        "LNPD_PY2": "18200000",
+        "LNPD_PY3": "16000000",
+        "LNPD_PY4": "15500000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010100106530002",
+        "id": "1168010100106530002",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106530002",
-            "gml:posList": "127.03789314 37.50835355 127.03800285 37.50812295 127.03825137 37.50819738 127.03814143 37.50842843 127.03789314 37.50835355",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "643.1",
-            "NSDI:LAD_USE_SITTN": "220",
-            "NSDI:LAD_USE_SITTN_NM": "업무용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "03",
-            "NSDI:TPGRPH_FRM_CODE_NM": "세로장방",
-            "NSDI:ROAD_SIDE_CODE": "01",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대로한면",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
+        "LNOD_PNU": "1168010100106530002",
+        "LNOD_PS": {
+            "@xsi:nil": "true"
         },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106530002",
-            "NSDI:POSESN_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:LBL": "공유지",
-            "NSDI:CNRS_PSN_CO": "4",
-            "NSDI:AGRDE_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:RESDNC_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_DE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:NATION_INSTT_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
+        "LNOD_LBL": "공유지",
+        "LNOD_N": "4",
+        "LNOD_AG": {
+            "@xsi:nil": "true"
         },
-        "land_price": {
-            "NSDI:PNU": "1168010100106530002",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "26090000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "21480000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "18220000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "16010000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "15490000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
+        "LNOD_RS": {
+            "@xsi:nil": "true"
         },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106530002",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,2,1,1,2,2,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_CH": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_CH_DT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_NT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106530002",
+        "LNSD_PRP_DSTRC": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,2,1,1,2,2,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106530002",
+        "LND_SHAPE": "127.03789314 37.50835355 127.03800285 37.50812295 127.03825137 37.50819738 127.03814143 37.50842843 127.03789314 37.50835355",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "643.1",
+        "LND_USE": "220",
+        "LND_USE_NM": "업무용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "03",
+        "LND_FR_NM": "세로장방",
+        "LND_RD": "01",
+        "LND_RD_NM": "광대로한면",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106530002",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "26090000",
+        "LNPD_PY1": "21480000",
+        "LNPD_PY2": "18220000",
+        "LNPD_PY3": "16010000",
+        "LNPD_PY4": "15490000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010100106530003",
+        "id": "1168010100106530003",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106530003",
-            "gml:posList": "127.03814143 37.50842843 127.03825137 37.50819738 127.03853326 37.5082819 127.0383854 37.50843331 127.03825478 37.50846264 127.03814143 37.50842843",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "588.2",
-            "NSDI:LAD_USE_SITTN": "210",
-            "NSDI:LAD_USE_SITTN_NM": "상업용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "04",
-            "NSDI:TPGRPH_FRM_CODE_NM": "사다리형",
-            "NSDI:ROAD_SIDE_CODE": "02",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대소각",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
-        },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106530003",
-            "NSDI:POSESN_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:LBL": "공유지",
-            "NSDI:CNRS_PSN_CO": "7",
-            "NSDI:AGRDE_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:RESDNC_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_DE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:NATION_INSTT_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
-        },
-        "land_price": {
-            "NSDI:PNU": "1168010100106530003",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "26970000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "22080000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "18960000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "16750000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "16260000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
-        },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106530003",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,2,1,1,2,2,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_PNU": "1168010100106530003",
+        "LNOD_PS": "06",
+        "LNOD_LBL": "법인",
+        "LNOD_N": "1",
+        "LNOD_AG": "11",
+        "LNOD_RS": "ZZ",
+        "LNOD_CH": "03",
+        "LNOD_CH_DT": "20210315",
+        "LNOD_NT": "ZZ",
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106530003",
+        "LNSD_PRP_DSTRC": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,2,1,1,2,2,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106530003",
+        "LND_SHAPE": "127.03814143 37.50842843 127.03825137 37.50819738 127.03853326 37.5082819 127.0383854 37.50843331 127.03825478 37.50846264 127.03814143 37.50842843",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "588.2",
+        "LND_USE": "210",
+        "LND_USE_NM": "상업용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "04",
+        "LND_FR_NM": "사다리형",
+        "LND_RD": "02",
+        "LND_RD_NM": "광대소각",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106530003",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "26970000",
+        "LNPD_PY1": "22080000",
+        "LNPD_PY2": "18960000",
+        "LNPD_PY3": "16750000",
+        "LNPD_PY4": "16260000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010100106530005",
+        "id": "1168010100106530005",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106530005",
-            "gml:posList": "127.03759869 37.5082648 127.03770829 37.50803465 127.03786179 37.50808064 127.03775208 37.50831106 127.03759869 37.5082648",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "396.4",
-            "NSDI:LAD_USE_SITTN": "220",
-            "NSDI:LAD_USE_SITTN_NM": "업무용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "03",
-            "NSDI:TPGRPH_FRM_CODE_NM": "세로장방",
-            "NSDI:ROAD_SIDE_CODE": "01",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대로한면",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
-        },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106530005",
-            "NSDI:POSESN_SE_CODE": "01",
-            "NSDI:LBL": "개인",
-            "NSDI:CNRS_PSN_CO": "1",
-            "NSDI:AGRDE_SE_CODE": "07",
-            "NSDI:RESDNC_SE_CODE": "02",
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": "03",
-            "NSDI:OWNSHIP_CHG_DE": "20021230",
-            "NSDI:NATION_INSTT_SE_CODE": "ZZ",
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
-        },
-        "land_price": {
-            "NSDI:PNU": "1168010100106530005",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "26100000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "21490000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "18230000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "16010000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "15490000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
-        },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106530005",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,2,1,1,2,2,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_PNU": "1168010100106530005",
+        "LNOD_PS": "01",
+        "LNOD_LBL": "개인",
+        "LNOD_N": "1",
+        "LNOD_AG": "ZZ",
+        "LNOD_RS": "ZZ",
+        "LNOD_CH": "03",
+        "LNOD_CH_DT": "20201211",
+        "LNOD_NT": "ZZ",
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106530005",
+        "LNSD_PRP_DSTRC": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,2,1,1,2,2,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106530005",
+        "LND_SHAPE": "127.03759869 37.5082648 127.03770829 37.50803465 127.03786179 37.50808064 127.03775208 37.50831106 127.03759869 37.5082648",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "396.4",
+        "LND_USE": "220",
+        "LND_USE_NM": "업무용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "03",
+        "LND_FR_NM": "세로장방",
+        "LND_RD": "01",
+        "LND_RD_NM": "광대로한면",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106530005",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "26100000",
+        "LNPD_PY1": "21490000",
+        "LNPD_PY2": "18230000",
+        "LNPD_PY3": "16010000",
+        "LNPD_PY4": "15490000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010100106800000",
+        "id": "1168010100106800000",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106800000",
-            "gml:posList": "127.03893751 37.50857225 127.03911782 37.50838758 127.03986995 37.50861664 127.03979369 37.50878146 127.04012219 37.50888155 127.04008536 37.5089613 127.04002373 37.50898393 127.03897489 37.50867622 127.03893751 37.50857225",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "2981.1",
-            "NSDI:LAD_USE_SITTN": "220",
-            "NSDI:LAD_USE_SITTN_NM": "업무용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "04",
-            "NSDI:TPGRPH_FRM_CODE_NM": "사다리형",
-            "NSDI:ROAD_SIDE_CODE": "02",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대소각",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
+        "LNOD_PNU": "1168010100106800000",
+        "LNOD_PS": {
+            "@xsi:nil": "true"
         },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106800000",
-            "NSDI:POSESN_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:LBL": "집합건물",
-            "NSDI:CNRS_PSN_CO": "148",
-            "NSDI:AGRDE_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:RESDNC_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_DE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:NATION_INSTT_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
+        "LNOD_LBL": "집합건물",
+        "LNOD_N": "148",
+        "LNOD_AG": {
+            "@xsi:nil": "true"
         },
-        "land_price": {
-            "NSDI:PNU": "1168010100106800000",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "27840000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "22820000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "19410000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "17130000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "16580000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
+        "LNOD_RS": {
+            "@xsi:nil": "true"
         },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106800000",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,2,1,1,2,2,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_CH": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_CH_DT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_NT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106800000",
+        "LNSD_PRP_DSTRC": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,2,1,1,2,2,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106800000",
+        "LND_SHAPE": "127.03893751 37.50857225 127.03911782 37.50838758 127.03986995 37.50861664 127.03979369 37.50878146 127.04012219 37.50888155 127.04008536 37.5089613 127.04002373 37.50898393 127.03897489 37.50867622 127.03893751 37.50857225",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "2981.1",
+        "LND_USE": "220",
+        "LND_USE_NM": "업무용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "04",
+        "LND_FR_NM": "사다리형",
+        "LND_RD": "02",
+        "LND_RD_NM": "광대소각",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106800000",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "27840000",
+        "LNPD_PY1": "22820000",
+        "LNPD_PY2": "19410000",
+        "LNPD_PY3": "17130000",
+        "LNPD_PY4": "16580000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010100106800001",
+        "id": "1168010100106800001",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106800001",
-            "gml:posList": "127.03911782 37.50838758 127.0395753 37.50791901 127.03962981 37.50790683 127.04003907 37.50803022 127.04034057 37.50840926 127.04019844 37.50871673 127.03911782 37.50838758",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "5475.1",
-            "NSDI:LAD_USE_SITTN": "220",
-            "NSDI:LAD_USE_SITTN_NM": "업무용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "04",
-            "NSDI:TPGRPH_FRM_CODE_NM": "사다리형",
-            "NSDI:ROAD_SIDE_CODE": "02",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대소각",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
-        },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106800001",
-            "NSDI:POSESN_SE_CODE": "06",
-            "NSDI:LBL": "법인",
-            "NSDI:CNRS_PSN_CO": "1",
-            "NSDI:AGRDE_SE_CODE": "01",
-            "NSDI:RESDNC_SE_CODE": "ZZ",
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": "03",
-            "NSDI:OWNSHIP_CHG_DE": "20190322",
-            "NSDI:NATION_INSTT_SE_CODE": "ZZ",
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
-        },
-        "land_price": {
-            "NSDI:PNU": "1168010100106800001",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "21550000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "17280000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "15270000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "12770000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "12260000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
-        },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106800001",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,2,1,1,2,2,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_PNU": "1168010100106800001",
+        "LNOD_PS": "06",
+        "LNOD_LBL": "법인",
+        "LNOD_N": "1",
+        "LNOD_AG": "02",
+        "LNOD_RS": "ZZ",
+        "LNOD_CH": "03",
+        "LNOD_CH_DT": "20190322",
+        "LNOD_NT": "ZZ",
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106800001",
+        "LNSD_PRP_DSTRC": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,2,1,1,2,2,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106800001",
+        "LND_SHAPE": "127.03911782 37.50838758 127.0395753 37.50791901 127.03962981 37.50790683 127.04003907 37.50803022 127.04034057 37.50840926 127.04019844 37.50871673 127.03911782 37.50838758",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "5475.1",
+        "LND_USE": "220",
+        "LND_USE_NM": "업무용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "04",
+        "LND_FR_NM": "사다리형",
+        "LND_RD": "02",
+        "LND_RD_NM": "광대소각",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106800001",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "21550000",
+        "LNPD_PY1": "17280000",
+        "LNPD_PY2": "15270000",
+        "LNPD_PY3": "12770000",
+        "LNPD_PY4": "12260000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010100106800002",
+        "id": "1168010100106800002",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106800002",
-            "gml:posList": "127.03979369 37.50878146 127.03986995 37.50861664 127.04019844 37.50871673 127.04012219 37.50888155 127.03979369 37.50878146",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "606.2",
-            "NSDI:LAD_USE_SITTN": "220",
-            "NSDI:LAD_USE_SITTN_NM": "업무용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "03",
-            "NSDI:TPGRPH_FRM_CODE_NM": "세로장방",
-            "NSDI:ROAD_SIDE_CODE": "04",
-            "NSDI:ROAD_SIDE_CODE_NM": "중로한면",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
-        },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106800002",
-            "NSDI:POSESN_SE_CODE": "06",
-            "NSDI:LBL": "법인",
-            "NSDI:CNRS_PSN_CO": "1",
-            "NSDI:AGRDE_SE_CODE": "11",
-            "NSDI:RESDNC_SE_CODE": "ZZ",
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": "03",
-            "NSDI:OWNSHIP_CHG_DE": "20190927",
-            "NSDI:NATION_INSTT_SE_CODE": "ZZ",
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
-        },
-        "land_price": {
-            "NSDI:PNU": "1168010100106800002",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "13540000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "10990000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "9776000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "9089000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "8760000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
-        },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106800002",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UNE200,UQA01X,UQA123",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역",
-            "NSDI:CNFLC_AT_LIST": "1,1,1,1",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_PNU": "1168010100106800002",
+        "LNOD_PS": "06",
+        "LNOD_LBL": "법인",
+        "LNOD_N": "1",
+        "LNOD_AG": "11",
+        "LNOD_RS": "ZZ",
+        "LNOD_CH": "03",
+        "LNOD_CH_DT": "20190927",
+        "LNOD_NT": "ZZ",
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106800002",
+        "LNSD_PRP_DSTRC": "UBA100,UNE200,UQA01X,UQA123",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역",
+        "LNSD_PRP_CNF": "1,1,1,1",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106800002",
+        "LND_SHAPE": "127.03979369 37.50878146 127.03986995 37.50861664 127.04019844 37.50871673 127.04012219 37.50888155 127.03979369 37.50878146",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "606.2",
+        "LND_USE": "220",
+        "LND_USE_NM": "업무용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "03",
+        "LND_FR_NM": "세로장방",
+        "LND_RD": "04",
+        "LND_RD_NM": "중로한면",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106800002",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "13540000",
+        "LNPD_PY1": "10990000",
+        "LNPD_PY2": "9776000",
+        "LNPD_PY3": "9089000",
+        "LNPD_PY4": "8760000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010800102760001",
+        "id": "1168010800102760001",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010800102760001",
-            "gml:posList": "127.0397402 37.50984484 127.0395326 37.5097958 127.03939876 37.51015568 127.03789233 37.50971369 127.03787375 37.50966171 127.03856028 37.50895863 127.03869079 37.50892886 127.03990037 37.50928382 127.03993071 37.50933211 127.0397402 37.50984484",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "14623.9",
-            "NSDI:LAD_USE_SITTN": "140",
-            "NSDI:LAD_USE_SITTN_NM": "아파트",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "04",
-            "NSDI:TPGRPH_FRM_CODE_NM": "사다리형",
-            "NSDI:ROAD_SIDE_CODE": "02",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대소각",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
+        "LNOD_PNU": "1168010800102760001",
+        "LNOD_PS": {
+            "@xsi:nil": "true"
         },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010800102760001",
-            "NSDI:POSESN_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:LBL": "집합건물",
-            "NSDI:CNRS_PSN_CO": "551",
-            "NSDI:AGRDE_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:RESDNC_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_DE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:NATION_INSTT_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
+        "LNOD_LBL": "집합건물",
+        "LNOD_N": "551",
+        "LNOD_AG": {
+            "@xsi:nil": "true"
         },
-        "land_price": {
-            "NSDI:PNU": "1168010800102760001",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "18460000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "15720000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "11940000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "10180000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "9376000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
+        "LNOD_RS": {
+            "@xsi:nil": "true"
         },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010800102760001",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDT100,UNE200,UOA120,UOA120,UQA01X,UQA123,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,정비구역(주택재건축정비구역),대공방어협조구역(위탁고도:77-257m),상대보호구역,상대보호구역(토지전산망의 내용은 참고사항일뿐 교육청에 반드시 확인요망),도시지역,제3종일반주거지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,1,1,2,2,1,1,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_CH": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_CH_DT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_NT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010800102760001",
+        "LNSD_PRP_DSTRC": "UBA100,UDT100,UNE200,UOA120,UOA120,UQA01X,UQA123,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,정비구역(주택재건축정비구역),대공방어협조구역(위탁고도:77-257m),상대보호구역,상대보호구역(토지전산망의 내용은 참고사항일뿐 교육청에 반드시 확인요망),도시지역,제3종일반주거지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,1,1,2,2,1,1,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010800102760001",
+        "LND_SHAPE": "127.0397402 37.50984484 127.0395326 37.5097958 127.03939876 37.51015568 127.03789233 37.50971369 127.03787375 37.50966171 127.03856028 37.50895863 127.03869079 37.50892886 127.03990037 37.50928382 127.03993071 37.50933211 127.0397402 37.50984484",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "14623.9",
+        "LND_USE": "140",
+        "LND_USE_NM": "아파트",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "04",
+        "LND_FR_NM": "사다리형",
+        "LND_RD": "02",
+        "LND_RD_NM": "광대소각",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010800102760001",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "18460000",
+        "LNPD_PY1": "15720000",
+        "LNPD_PY2": "11940000",
+        "LNPD_PY3": "10180000",
+        "LNPD_PY4": "9376000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010800102770000",
+        "id": "1168010800102770000",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010800102770000",
-            "gml:posList": "127.03986246 37.50989678 127.03994615 37.50967169 127.04008868 37.50971345 127.039987 37.50993332 127.03986246 37.50989678",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "327.2",
-            "NSDI:LAD_USE_SITTN": "210",
-            "NSDI:LAD_USE_SITTN_NM": "상업용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "02",
-            "NSDI:TPGRPH_FRM_CODE_NM": "가로장방",
-            "NSDI:ROAD_SIDE_CODE": "05",
-            "NSDI:ROAD_SIDE_CODE_NM": "중로각지",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
-        },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010800102770000",
-            "NSDI:POSESN_SE_CODE": "01",
-            "NSDI:LBL": "개인",
-            "NSDI:CNRS_PSN_CO": "1",
-            "NSDI:AGRDE_SE_CODE": "10",
-            "NSDI:RESDNC_SE_CODE": "41",
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": "18",
-            "NSDI:OWNSHIP_CHG_DE": "20100906",
-            "NSDI:NATION_INSTT_SE_CODE": "ZZ",
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
-        },
-        "land_price": {
-            "NSDI:PNU": "1168010800102770000",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "13230000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "11700000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "10400000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "9670000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "9320000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
-        },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010800102770000",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UNE200,UOA120,UOA120,UQA01X,UQA123",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,대공방어협조구역(위탁고도:77-257m),상대보호구역,상대보호구역(토지전산망의 내용은 참고사항일뿐 교육청에 반드시 확인요망),도시지역,제3종일반주거지역",
-            "NSDI:CNFLC_AT_LIST": "1,1,1,1,1,1",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_PNU": "1168010800102770000",
+        "LNOD_PS": "01",
+        "LNOD_LBL": "개인",
+        "LNOD_N": "1",
+        "LNOD_AG": "10",
+        "LNOD_RS": "41",
+        "LNOD_CH": "18",
+        "LNOD_CH_DT": "20100906",
+        "LNOD_NT": "ZZ",
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010800102770000",
+        "LNSD_PRP_DSTRC": "UBA100,UNE200,UOA120,UOA120,UQA01X,UQA123",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,대공방어협조구역(위탁고도:77-257m),상대보호구역,상대보호구역(토지전산망의 내용은 참고사항일뿐 교육청에 반드시 확인요망),도시지역,제3종일반주거지역",
+        "LNSD_PRP_CNF": "1,1,1,1,1,1",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010800102770000",
+        "LND_SHAPE": "127.03986246 37.50989678 127.03994615 37.50967169 127.04008868 37.50971345 127.039987 37.50993332 127.03986246 37.50989678",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "327.2",
+        "LND_USE": "210",
+        "LND_USE_NM": "상업용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "02",
+        "LND_FR_NM": "가로장방",
+        "LND_RD": "05",
+        "LND_RD_NM": "중로각지",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010800102770000",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "13230000",
+        "LNPD_PY1": "11700000",
+        "LNPD_PY2": "10400000",
+        "LNPD_PY3": "9670000",
+        "LNPD_PY4": "9320000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010800102770001",
+        "id": "1168010800102770001",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010800102770001",
-            "gml:posList": "127.039987 37.50993332 127.04004022 37.50981834 127.04018162 37.50985983 127.0401284 37.50997481 127.039987 37.50993332",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "181.2",
-            "NSDI:LAD_USE_SITTN": "210",
-            "NSDI:LAD_USE_SITTN_NM": "상업용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "01",
-            "NSDI:TPGRPH_FRM_CODE_NM": "정방형",
-            "NSDI:ROAD_SIDE_CODE": "06",
-            "NSDI:ROAD_SIDE_CODE_NM": "소로한면",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
-        },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010800102770001",
-            "NSDI:POSESN_SE_CODE": "01",
-            "NSDI:LBL": "개인",
-            "NSDI:CNRS_PSN_CO": "1",
-            "NSDI:AGRDE_SE_CODE": "09",
-            "NSDI:RESDNC_SE_CODE": "41",
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": "03",
-            "NSDI:OWNSHIP_CHG_DE": "19990901",
-            "NSDI:NATION_INSTT_SE_CODE": "ZZ",
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
-        },
-        "land_price": {
-            "NSDI:PNU": "1168010800102770001",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "12510000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "9968000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "8860000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "8142000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "7847000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
-        },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010800102770001",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UNE200,UOA120,UOA120,UQA01X,UQA123",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,대공방어협조구역(위탁고도:77-257m),상대보호구역,상대보호구역(토지전산망의 내용은 참고사항일뿐 교육청에 반드시 확인요망),도시지역,제3종일반주거지역",
-            "NSDI:CNFLC_AT_LIST": "1,1,1,1,1,1",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_PNU": "1168010800102770001",
+        "LNOD_PS": "01",
+        "LNOD_LBL": "개인",
+        "LNOD_N": "1",
+        "LNOD_AG": "09",
+        "LNOD_RS": "41",
+        "LNOD_CH": "03",
+        "LNOD_CH_DT": "19990901",
+        "LNOD_NT": "ZZ",
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010800102770001",
+        "LNSD_PRP_DSTRC": "UBA100,UNE200,UOA120,UOA120,UQA01X,UQA123",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,대공방어협조구역(위탁고도:77-257m),상대보호구역,상대보호구역(토지전산망의 내용은 참고사항일뿐 교육청에 반드시 확인요망),도시지역,제3종일반주거지역",
+        "LNSD_PRP_CNF": "1,1,1,1,1,1",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010800102770001",
+        "LND_SHAPE": "127.039987 37.50993332 127.04004022 37.50981834 127.04018162 37.50985983 127.0401284 37.50997481 127.039987 37.50993332",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "181.2",
+        "LND_USE": "210",
+        "LND_USE_NM": "상업용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "01",
+        "LND_FR_NM": "정방형",
+        "LND_RD": "06",
+        "LND_RD_NM": "소로한면",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010800102770001",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "12510000",
+        "LNPD_PY1": "9968000",
+        "LNPD_PY2": "8860000",
+        "LNPD_PY3": "8142000",
+        "LNPD_PY4": "7847000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010800102770027",
+        "id": "1168010800102770027",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010800102770027",
-            "gml:posList": "127.03995903 37.50963708 127.04005989 37.50936567 127.04011044 37.50934538 127.04033034 37.50940991 127.04019545 37.50970638 127.03995903 37.50963708",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "809.7",
-            "NSDI:LAD_USE_SITTN": "220",
-            "NSDI:LAD_USE_SITTN_NM": "업무용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "03",
-            "NSDI:TPGRPH_FRM_CODE_NM": "세로장방",
-            "NSDI:ROAD_SIDE_CODE": "02",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대소각",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
-        },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010800102770027",
-            "NSDI:POSESN_SE_CODE": "06",
-            "NSDI:LBL": "법인",
-            "NSDI:CNRS_PSN_CO": "1",
-            "NSDI:AGRDE_SE_CODE": "11",
-            "NSDI:RESDNC_SE_CODE": "ZZ",
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": "04",
-            "NSDI:OWNSHIP_CHG_DE": "20150917",
-            "NSDI:NATION_INSTT_SE_CODE": "ZZ",
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
-        },
-        "land_price": {
-            "NSDI:PNU": "1168010800102770027",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "28870000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "24380000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "23160000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "17090000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "16000000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
-        },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010800102770027",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,2,1,1,2,2,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_PNU": "1168010800102770027",
+        "LNOD_PS": "06",
+        "LNOD_LBL": "법인",
+        "LNOD_N": "1",
+        "LNOD_AG": "11",
+        "LNOD_RS": "ZZ",
+        "LNOD_CH": "04",
+        "LNOD_CH_DT": "20150917",
+        "LNOD_NT": "ZZ",
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010800102770027",
+        "LNSD_PRP_DSTRC": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,2,1,1,2,2,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010800102770027",
+        "LND_SHAPE": "127.03995903 37.50963708 127.04005989 37.50936567 127.04011044 37.50934538 127.04033034 37.50940991 127.04019545 37.50970638 127.03995903 37.50963708",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "809.7",
+        "LND_USE": "220",
+        "LND_USE_NM": "업무용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "03",
+        "LND_FR_NM": "세로장방",
+        "LND_RD": "02",
+        "LND_RD_NM": "광대소각",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010800102770027",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "28870000",
+        "LNPD_PY1": "24380000",
+        "LNPD_PY2": "23160000",
+        "LNPD_PY3": "17090000",
+        "LNPD_PY4": "16000000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010100106880000",
+        "id": "1168010100106880000",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106880000",
-            "gml:posList": "127.03967497 37.50775833 127.03985211 37.50757699 127.04007938 37.50767305 127.03989411 37.50787097 127.03969332 37.5078104 127.03967497 37.50775833",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "646.8",
-            "NSDI:LAD_USE_SITTN": "220",
-            "NSDI:LAD_USE_SITTN_NM": "업무용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "02",
-            "NSDI:TPGRPH_FRM_CODE_NM": "가로장방",
-            "NSDI:ROAD_SIDE_CODE": "02",
-            "NSDI:ROAD_SIDE_CODE_NM": "광대소각",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
-        },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106880000",
-            "NSDI:POSESN_SE_CODE": "06",
-            "NSDI:LBL": "법인",
-            "NSDI:CNRS_PSN_CO": "1",
-            "NSDI:AGRDE_SE_CODE": "11",
-            "NSDI:RESDNC_SE_CODE": "ZZ",
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": "04",
-            "NSDI:OWNSHIP_CHG_DE": "20190308",
-            "NSDI:NATION_INSTT_SE_CODE": "ZZ",
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
-        },
-        "land_price": {
-            "NSDI:PNU": "1168010100106880000",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "1",
-            "NSDI:PBLNTF_PCLND": "27000000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "21500000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "18400000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "15300000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "14700000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
-        },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106880000",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
-            "NSDI:CNFLC_AT_LIST": "1,2,1,1,2,2,3,2",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_PNU": "1168010100106880000",
+        "LNOD_PS": "06",
+        "LNOD_LBL": "법인",
+        "LNOD_N": "1",
+        "LNOD_AG": "11",
+        "LNOD_RS": "ZZ",
+        "LNOD_CH": "04",
+        "LNOD_CH_DT": "20190308",
+        "LNOD_NT": "ZZ",
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106880000",
+        "LNSD_PRP_DSTRC": "UBA100,UDX200,UNE200,UQA01X,UQA123,UQA220,UQS100,ZA0013",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,가로구역별 최고높이 제한지역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역,일반상업지역,도로(접합),건축선",
+        "LNSD_PRP_CNF": "1,2,1,1,2,2,3,2",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106880000",
+        "LND_SHAPE": "127.03967497 37.50775833 127.03985211 37.50757699 127.04007938 37.50767305 127.03989411 37.50787097 127.03969332 37.5078104 127.03967497 37.50775833",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "646.8",
+        "LND_USE": "220",
+        "LND_USE_NM": "업무용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "02",
+        "LND_FR_NM": "가로장방",
+        "LND_RD": "02",
+        "LND_RD_NM": "광대소각",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106880000",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "1",
+        "LNPD_PY0": "27000000",
+        "LNPD_PY1": "21500000",
+        "LNPD_PY2": "18400000",
+        "LNPD_PY3": "15300000",
+        "LNPD_PY4": "14700000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     },
     {
-        "pnu": "1168010100106880001",
+        "id": "1168010100106880001",
         "service_name": "GBD",
-        "land_char_WFS": {
-            "NSDI:PNU": "1168010100106880001",
-            "gml:posList": "127.03989411 37.50787097 127.04007938 37.50767305 127.04026886 37.50775309 127.04009467 37.50793145 127.03989411 37.50787097",
-            "NSDI:REGSTR_SE_CODE": "1",
-            "NSDI:LNDCGR_CODE": "08",
-            "NSDI:LNDCGR_CODE_NM": "대",
-            "NSDI:LNDPCL_AR": "484",
-            "NSDI:LAD_USE_SITTN": "220",
-            "NSDI:LAD_USE_SITTN_NM": "업무용",
-            "NSDI:TPGRPH_HG_CODE": "02",
-            "NSDI:TPGRPH_HG_CODE_NM": "평지",
-            "NSDI:TPGRPH_FRM_CODE": "03",
-            "NSDI:TPGRPH_FRM_CODE_NM": "세로장방",
-            "NSDI:ROAD_SIDE_CODE": "05",
-            "NSDI:ROAD_SIDE_CODE_NM": "중로각지",
-            "NSDI:FRST_REGIST_DT": "2021-08-11Z"
+        "LNOD_PNU": "1168010100106880001",
+        "LNOD_PS": {
+            "@xsi:nil": "true"
         },
-        "land_own_WFS": {
-            "NSDI:PNU": "1168010100106880001",
-            "NSDI:POSESN_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:LBL": "공유지",
-            "NSDI:CNRS_PSN_CO": "2",
-            "NSDI:AGRDE_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:RESDNC_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_CAUSE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:OWNSHIP_CHG_DE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:NATION_INSTT_SE_CODE": {
-                "@xsi:nil": "true"
-            },
-            "NSDI:FRST_REGIST_DT": "2021-09-12T03:00:57"
+        "LNOD_LBL": "공유지",
+        "LNOD_N": "2",
+        "LNOD_AG": {
+            "@xsi:nil": "true"
         },
-        "land_price": {
-            "NSDI:PNU": "1168010100106880001",
-            "NSDI:PBLNTF_PCLND_STDR_YEAR": "2021",
-            "NSDI:PBLNTF_PCLND_STDR_MT": "01",
-            "NSDI:STD_LAND_AT": "0",
-            "NSDI:PBLNTF_PCLND": "14110000",
-            "NSDI:PSTYR_1_PBLNTF_PCLND": "11460000",
-            "NSDI:PSTYR_2_PBLNTF_PCLND": "10190000",
-            "NSDI:PSTYR_3_PBLNTF_PCLND": "9476000",
-            "NSDI:PSTYR_4_PBLNTF_PCLND": "9133000",
-            "NSDI:FRST_REGIST_DT": "2021-08-25T10:08:50"
+        "LNOD_RS": {
+            "@xsi:nil": "true"
         },
-        "land_use_WFS": {
-            "NSDI:PNU": "1168010100106880001",
-            "NSDI:PRPOS_AREA_DSTRC_CODE_LIST": "UBA100,UNE200,UQA01X,UQA123",
-            "NSDI:PRPOS_AREA_DSTRC_NM_LIST": "과밀억제권역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역",
-            "NSDI:CNFLC_AT_LIST": "1,1,1,1",
-            "NSDI:FRST_REGIST_DT": "2021-08-08T03:00:11"
-        }
+        "LNOD_CH": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_CH_DT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_NT": {
+            "@xsi:nil": "true"
+        },
+        "LNOD_STD_DT": "2021-09-23T09:08:53",
+        "LNSD_PNU": "1168010100106880001",
+        "LNSD_PRP_DSTRC": "UBA100,UNE200,UQA01X,UQA123",
+        "LNSD_PRP_DSTRC_NM": "과밀억제권역,대공방어협조구역(위탁고도:77-257m),도시지역,제3종일반주거지역",
+        "LNSD_PRP_CNF": "1,1,1,1",
+        "LNSD_STD_DT": "2021-09-23T13:39:52",
+        "LND_PNU": "1168010100106880001",
+        "LND_SHAPE": "127.03989411 37.50787097 127.04007938 37.50767305 127.04026886 37.50775309 127.04009467 37.50793145 127.03989411 37.50787097",
+        "LND_Regstr_CODE": "1",
+        "LND_CGR": "08",
+        "LND_CGR_NM": "대",
+        "LND_AR": "484",
+        "LND_USE": "220",
+        "LND_USE_NM": "업무용",
+        "LND_HG": "02",
+        "LND_HG-NM": "평지",
+        "LND_FR": "03",
+        "LND_FR_NM": "세로장방",
+        "LND_RD": "05",
+        "LND_RD_NM": "중로각지",
+        "LND_STD_DT": "2021-08-11Z",
+        "LNPD_PNU": "1168010100106880001",
+        "LNPD_YR": "2021",
+        "LNPD_MT": "01",
+        "LNPD_ST": "0",
+        "LNPD_PY0": "14110000",
+        "LNPD_PY1": "11460000",
+        "LNPD_PY2": "10190000",
+        "LNPD_PY3": "9476000",
+        "LNPD_PY4": "9133000",
+        "LNPD_STD": "2021-08-25T10:08:50"
     }
 ]

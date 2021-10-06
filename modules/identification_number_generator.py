@@ -1,8 +1,5 @@
 import os
-import datetime
 import json
-import api_agent
-import math
 
 sigungu_code_path = "{}/../configs/sigungu_code.json".format(
     os.path.dirname(__file__))

@@ -9,7 +9,7 @@ class CodeTranslator:
     def __init__(self, echo=True, echo_error=True):
         self.echo = echo
         self.echo_error = echo_error
-        with open(sigungu_code_path, "r") as json_file:
+        with open(sigungu_code_path, "r", encoding="utf-8") as json_file:
             self.translator = json.load(json_file)
         self.log("translator preset is loaded.")
 

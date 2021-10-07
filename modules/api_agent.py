@@ -14,9 +14,9 @@ class ApiAgent:
         self.type = type
         self.echo = echo
         self.echo_error = echo_error
-        with open(config_path, "r") as json_file:
+        with open(config_path, "r", encoding="utf-8") as json_file:
             self.api_preset = json.load(json_file)
-        with open(authkey_path, "r") as json_file:
+        with open(authkey_path, "r", encoding="utf-8") as json_file:
             self.authkey = json.load(json_file)
         self.log(
             'configuration preset and authorization key is set successfully.' + '\033[0m')

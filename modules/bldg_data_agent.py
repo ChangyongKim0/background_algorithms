@@ -40,12 +40,12 @@ class BldgDataAgent:
         return organized_pnu_list
 
     def _getOrganizedPnuFromFile(self, file_name):
-        with open("{}/../input/{}.txt".format(os.path.dirname(__file__), file_name), "r") as f:
+        with open("{}/../input/{}.txt".format(os.path.dirname(__file__), file_name), "r", encoding="utf-8") as f:
             lines = f.read().splitlines()
         return self.getOrganizedPnu(lines)
 
     def _getConfig(self, file_name):
-        with open("{}/../configs/{}.json".format(os.path.dirname(__file__), file_name), "r") as f:
+        with open("{}/../configs/{}.json".format(os.path.dirname(__file__), file_name), "r", encoding="utf-8") as f:
             return json.load(f)
 
     def _getToday(self):
@@ -55,7 +55,7 @@ class BldgDataAgent:
         print(1)
 
     def _updateConfig(self, file_name, new_data):
-        with open("{}/../configs/{}.json".format(os.path.dirname(__file__), file_name), "w") as f:
+        with open("{}/../configs/{}.json".format(os.path.dirname(__file__), file_name), "w", encoding="utf-8") as f:
             json.dump(new_data, f, indent=4, ensure_ascii=False)
 
     def _createDir(self, dir_path):
@@ -74,6 +74,7 @@ class BldgDataAgent:
                 data = json.load(f)
             for each_data in data:
                 id_data = self.id_generator.convert(api_type, each_data)
+                self.log(id_data)
                 pnu = id_data["id"]
                 latlng = code_gen.get(pnu)
                 if latlng == -1:

@@ -47,7 +47,7 @@
     "NSDI:PSTYR_4_PBLNTF_PCLND": "LNPD_PY4",
     "NSDI:FRST_REGIST_DT": "LNPD_STD"
     },
-    "bld_year": {
+    "bldg_year": {
     "gml:posList": "BLYD_SHAE",
     "NSDI:GIS_IDNTFC_NO": "BLYD_GIS_IDNTFC",
     "NSDI:PNU": "BLYD_AG_SE",
@@ -61,7 +61,7 @@
     "NSDI:UNDGRND_FLOOR_CO": "BLYD_GFL",
     "NSDI:FRST_REGIST_DT": "BLY_STD_DT"
     },
-    "bld_title": {
+    "bldg_title": {
     "mgmBldrgstPk": "BLRD_IDNTF",
     "mainPurpsCd": "BLRD_PRPS_MJ",
     "mainPurpsCdNm": "BLRD_PRPS_MJ_NM",
@@ -133,7 +133,7 @@
     "rserthqkDsgnApplyYn": "BLRD_QK_YN",
     "rserthqkAblty": "BLRD_QK_AB"
     },
-    "bld_totitle": {
+    "bldg_title_total": {
     "mgmBldrgstPk": "BLTD_IDNTF",
     "mainPurpsCd": "BLTD_PRPS_MJ",
     "mainPurpsCdNm": "BLTD_PRPS_MJ_NM",
@@ -192,7 +192,7 @@
     "newOldRegstrGbCd": "BLTD_NO_CD",
     "newOldRegstrGbCdNm": "BLTD_NO_NM"
     },
-    "bld_flr": {
+    "bldg_floor": {
     "platPlc": "BLFD_PLC",
     "sigunguCd": "BLFD_PNU_SGG",
     "bjdongCd": "BLFD_PNU_BJD",
@@ -215,7 +215,7 @@
     "crtnDay": "BLFD_DT_CR"
 
     },
-    "bld_cnnct": {
+    "bldg_connect": {
     "platPlc": "BLAD_PLC",
     "sigunguCd": "BLAD_PNU_SGG",
     "bjdongCd": "BLAD_PNU_BJD",

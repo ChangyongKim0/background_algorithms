@@ -4,6 +4,8 @@ import json
 sigungu_code_path = "{}/../configs/sigungu_code.json".format(
     os.path.dirname(__file__))
 
+# id_count id id_2 id_3 ... 에 해당하는 값을 반환
+
 
 class IdentificationNumberGenerator:
     def __init__(self, echo=True, echo_error=True):
@@ -43,8 +45,9 @@ class IdentificationNumberGenerator:
             else:
                 jibun_code = self._fillZero(
                     jibun[0]) + self._fillZero(jibun[1])
-            return self._convertBJD("서울특별시 {}{}".format(
+            id = self._convertBJD("서울특별시 {}{}".format(
                 data["시군구"], data["법정동"])) + "1" + jibun_code
+            return {"id_count": 1, "id": id}
         elif type in ["apt_rent", "apt_trade", "apt_right", "multiple_housing_rent", "multiple_housing_trade"]:
             gu_name = self._convertBJD(data["지역코드"]+"00000")
             jibun = data["지번"].split('-')
@@ -53,12 +56,49 @@ class IdentificationNumberGenerator:
             else:
                 jibun_code = self._fillZero(
                     jibun[0]) + self._fillZero(jibun[1])
-            return self._convertBJD("{}{}".format(
+            id = self._convertBJD("{}{}".format(
                 gu_name, data["법정동"])) + "1" + jibun_code
+            return {"id_count": 1, "id": id}
         elif type == "multiple_housing_trade":
             return -1
         elif type == "land_trade":
             return -1
+        elif type == "bldg_floor":
+            if data["platGbCd"] == "0":
+                temp = "1"
+            else:
+                temp = "0"
+            id = data["sigunguCd"] + data["bjdongCd"] + \
+                temp + data["bun"] + data["ji"]
+            id_2 = data["mgmBldrgstPk"]
+            return {"id_count": 2, "id": id, "id_2": id_2}
+        elif type == "bldg_title":
+            if data["platGbCd"] == "0":
+                temp = "1"
+            else:
+                temp = "0"
+            id = data["sigunguCd"] + data["bjdongCd"] + \
+                temp + data["bun"] + data["ji"]
+            id_2 = data["mgmBldrgstPk"]
+            return {"id_count": 2, "id": id, "id_2": id_2}
+        elif type == "bldg_year":
+            return {"id_count": 1, "id": data["NSDI:PNU"]}
+        elif type == "bldg_title_total":
+            if data["platGbCd"] == "0":
+                temp = "1"
+            else:
+                temp = "0"
+            id = data["sigunguCd"] + data["bjdongCd"] + \
+                temp + data["bun"] + data["ji"]
+            return {"id_count": 1, "id": id}
+        elif type == "bldg_connect":
+            if data["platGbCd"] == "0":
+                temp = "1"
+            else:
+                temp = "0"
+            id = data["sigunguCd"] + data["bjdongCd"] + \
+                temp + data["bun"] + data["ji"]
+            return {"id_count": 1, "id": id}
         return -1
 
 

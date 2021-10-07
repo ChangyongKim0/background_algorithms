@@ -49,7 +49,7 @@ class LatLngCodeGenerator:
         if pnu in self.distribution_data.keys():
             return self.distribution_data[pnu]
         else:
-            self.errlog("pnu value {} is not in data.".format(pnu))
+            # self.errlog("pnu value {} is not in data.".format(pnu))
             return -1
 
     def getLatCode(self, pnu):

@@ -1,240 +1,240 @@
 {
-	"api_list_to_request": {
-		"land": [
-			"land_char_WFS",
-			"land_use_WFS",
-			"land_own_WFS",
-			"land_price"
-		],
-		"building": [
-			"bldg_year"
-		],
-		"building_registration":[
-			"bldg_title",
-			"bldg_title_total",
-			"bldg_floor",
-			"bldg_connect"
-		],
-		"transaction": [
-			"officetel_rent",
-			"officetel_trade",
-			"apt_rent",
-			"apt_trade",
-			"apt_right",
-			"multiple_housing_rent",
-			"multiple_housing_trade",
-			"others_trade",
-			"land_trade"
-		]
-	},
-	"api_key_list":{
-		"land_char_WFS": {
-            "authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1611000/nsdi/LandCharacteristicsService/wfs/getLandCharacteristicsWFS",
-			"base_inputs": {
-				"typename": "F251",
-				"maxFeatures": "500",
-				"srsName": "EPSG:4326",
-				"resultType": "results"
-			},
-			"required_input_list": ["pnu"],
-            "filter_output": ["NSDI:PNU"],
-			"required_output_list": ["NSDI:PNU","gml:posList","NSDI:REGSTR_SE_CODE","NSDI:LNDCGR_CODE","NSDI:LNDCGR_CODE_NM","NSDI:LNDPCL_AR","NSDI:LAD_USE_SITTN","NSDI:LAD_USE_SITTN_NM","NSDI:TPGRPH_HG_CODE","NSDI:TPGRPH_HG_CODE_NM","NSDI:TPGRPH_FRM_CODE","NSDI:TPGRPH_FRM_CODE_NM","NSDI:ROAD_SIDE_CODE","NSDI:ROAD_SIDE_CODE_NM","NSDI:FRST_REGIST_DT"]
-		},
-		"land_use_WFS": {
-            "authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1611000/nsdi/LandUseService/wfs/getLandUseWFS",
-			"base_inputs": {
-				"typename": "F176",
-				"maxFeatures": "500",
-				"resultType": "results",
-				"srsName": "EPSG:4326"
-			},
-			"required_input_list": ["pnu"],
-            "filter_output": ["NSDI:PNU"],
-			"required_output_list": ["NSDI:PNU","NSDI:PRPOS_AREA_DSTRC_CODE_LIST","NSDI:PRPOS_AREA_DSTRC_NM_LIST","NSDI:CNFLC_AT_LIST","NSDI:FRST_REGIST_DT"]
-		},
-		"land_own_WFS": {
-            "authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1611000/nsdi/PossessionService/wfs/getPossessionWFS",
-			"base_inputs": {
-				"typename": "F173",
-				"maxFeatures": "500",
-				"resultType": "results",
-				"srsName": "EPSG:4326"
-			},
-			"required_input_list": ["pnu"],
-            "filter_output": ["NSDI:PNU"],
-			"required_output_list": ["NSDI:PNU","NSDI:POSESN_SE_CODE","NSDI:LBL","NSDI:CNRS_PSN_CO","NSDI:AGRDE_SE_CODE","NSDI:RESDNC_SE_CODE","NSDI:OWNSHIP_CHG_CAUSE_CODE","NSDI:OWNSHIP_CHG_DE","NSDI:NATION_INSTT_SE_CODE","NSDI:FRST_REGIST_DT"]
-		},
-		"land_price": {
-            "authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1611000/nsdi/IndvdLandPriceService/wfs/getIndvdLandPriceWFS",
-			"base_inputs": {
-				"typename": "F166",
-				"maxFeatures": "500",
-				"resultType": "results",
-				"srsName": "EPSG:4326"
-			},
-			"required_input_list": ["pnu"],
-            "filter_output": ["NSDI:PNU"],
-			"required_output_list": ["NSDI:PNU","NSDI:PBLNTF_PCLND_STDR_YEAR","NSDI:PBLNTF_PCLND_STDR_MT","NSDI:STD_LAND_AT","NSDI:PBLNTF_PCLND","NSDI:PSTYR_1_PBLNTF_PCLND","NSDI:PSTYR_2_PBLNTF_PCLND","NSDI:PSTYR_3_PBLNTF_PCLND","NSDI:PSTYR_4_PBLNTF_PCLND","NSDI:FRST_REGIST_DT"]
-		},
-		"bldg_year": {
-            "authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1611000/nsdi/IndvdLandPriceService/wfs/getIndvdLandPriceWFS",
-			"base_inputs": {
-				"typename": "F252",
-				"maxFeatures": "500",
-				"resultType": "results",
-				"srsName": "EPSG:4326"
-			},
-			"required_input_list": ["pnu"],
-            "filter_output": ["NSDI:PNU"],
-			"required_output_list": ["gml:posList","NSDI:GIS_IDNTFC_NO","NSDI:PNU","NSDI:BULD_IDNTFC_NO","NSDI:AGBLDG_SE_CODE","NSDI:BULD_KND_CODE","NSDI:BULD_NM","NSDI:BULD_DONG_NM","NSDI:BULD_TOTAR","NSDI:GROUND_FLOOR_CO","NSDI:UNDGRND_FLOOR_CO","NSDI:FRST_REGIST_DT"]
-		},
-		"bldg_title": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrTitleInfo",
-			"base_inputs": {
-				"numOfRows": "1000000",
-				"platGbCd": "0"
-			},
-			"required_input_list": ["sigunguCd","bjdongCd"],
-            "filter_output": ["sigunguCd","bjdongCd","bun","ji"],
-			"required_output_list": ["mgmBldrgstPk","mainPurpsCd","mainPurpsCdNm","etcPurps","roofCd","roofCdNm","etcRoof","hhldCnt","fmlyCnt","hoCnt","heit","grndFlrCnt","ugrndFlrCnt","rideUseElvtCnt","emgenUseElvtCnt","atchBldCnt","atchBldArea","totDongTotArea","indrMechUtcnt","indrMechArea","oudrMechUtcnt","oudrMechArea","indrAutoUtcnt","indrAutoArea","pmsDay","stcnsDay","useAprDay","engrGrade","engrRat","engrEpi","gnBldGrade","gnBldCert","itgBldGrade","itgBldCert","crtnDay","platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","regstrGbCd","regstrGbCdNm","regstrKindCd","regstrKindCdNm","bldNm","dongNm","newPlatPlc","splotNm","bylotCnt","naRoadCd","naBjdongCd","naUgrndCd","naMainBun","naSubBun","mainAtchGbCd","mainAtchGbCdNm","platArea","archArea","bcRat","totArea","vlRatEstmTotArea","vlRat","strctCd","etcStrct","rserthqkDsgnApplyYn","rserthqkAblty"]
-		},
-		"bldg_title_total": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrRecapTitleInfo",
-			"base_inputs": {
-				"numOfRows": "1000000",
-				"platGbCd": "0"
-			},
-			"required_input_list": ["sigunguCd","bjdongCd"],
-            "filter_output": ["sigunguCd","bjdongCd","bun","ji"],
-			"required_output_list": ["mgmBldrgstPk","mainPurpsCd","mainPurpsCdNm","etcPurps","hhldCnt","fmlyCnt","hoCnt","mainBldCnt","atchBldCnt","atchBldArea","totPkngCnt","indrMechUtcnt","indrMechArea","oudrMechUtcnt","oudrMechArea","indrAutoUtcnt","indrAutoArea","pmsDay","stcnsDay","useAprDay","engrGrade","engrRat","engrEpi","gnBldGrade","gnBldCert","itgBldGrade","itgBldCert","crtnDay","platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","regstrGbCd","regstrGbCdNm","regstrKindCd","regstrKindCdNm","bldNm","newPlatPlc","splotNm","bylotCnt","naRoadCd","naBjdongCd","naUgrndCd","naMainBun","naSubBun","platArea","archArea","bcRat","totArea","vlRatEstmTotArea","vlRat","newOldRegstrGbCd","newOldRegstrGbCdNm"]
-		},
-		"bldg_floor": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrFlrOulnInfo",
-			"base_inputs": {
-				"numOfRows": "100000000",
-				"platGbCd": "0"
-			},
-			"required_input_list": ["sigunguCd","bjdongCd"],
-            "filter_output": ["sigunguCd","bjdongCd","bun","ji"],
-			"required_output_list": ["platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","mgmBldrgstPk","flrGbCd","flrGbCdNm","flrNo","flrNoNm","strctCd","strctCdNm","etcStrct","mainPurpsCd","mainPurpsCdNm","etcPurps","area","areaExctYn","crtnDay"]
-		},
-		"bldg_connect": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrAtchJibunInfo",
-			"base_inputs": {
-				"numOfRows": "10000000",
-				"platGbCd": "0"
-			},
-			"required_input_list": ["sigunguCd","bjdongCd"],
-            "filter_output": ["sigunguCd","bjdongCd","bun","ji"],
-			"required_output_list": ["platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","mgmBldrgstPk","atchRegstrGbCd","atchRegstrGbCdNm","atchSigunguCd","atchBjdongCd","atchPlatGbCd","atchBun","atchJi","atchSplotNm","crtnDay","regstrKindCd","regstrKindCdNm"]
-		},
-		"officetel_rent": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcOffiRent",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동","지번"],
-			"required_output_list": ["건축년도","년","단지","법정동","보증금","시군구","월","월세","일","전용면적","지번","지역코드","층"]
-		},
-		"officetel_trade": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcOffiTrade",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동","지번"],
-			"required_output_list": ["거래금액","건축년도","년","단지","법정동","시군구","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
-		},
-		"apt_rent": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptRent",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동","지번"],
-			"required_output_list": ["건축년도","년","법정동","보증금액","아파트","월","월세금액","일","전용면적","지번","지역코드","층"]
-		},
-		"apt_trade": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동","지번"],
-			"required_output_list": ["거래금액","건축년도","년","법정동","아파트","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
-		},
-		"apt_right": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동","지번"],
-			"required_output_list": ["거래금액","년","단지","법정동","시군구","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
-		},
-		"multiple_housing_rent": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHRent",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동","지번"],
-			"required_output_list": ["건축년도","년","법정동","보증금액","연립다세대","월","월세금액","일","전용면적","지번","지역코드","층"]
-		},
-		"multiple_housing_trade": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHRent",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동","지번"],
-			"required_output_list": ["거래금액","건축년도","년","대지권면적","법정동","연립다세대","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
-		},
-		"single_housing_rent": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcSHRent",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동"],
-			"required_output_list": ["건축년도","계약면적","년","법정동","보증금액","월","월세금액","일","지역코드"]
-		},
-		"single_housing_trade": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcSHTrade",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동"],
-			"required_output_list": ["거래금액","건축년도","년","대지면적","법정동","연면적","월","일","주택유형","지역코드","해제여부","해제사유발생일"]
-		},
-		"others_trade": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcNrgTrade",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동"],
-			"required_output_list": ["거래금액","건물면적","건물주용도","건축년도","년","대지면적","법정동","시군구","용도지역","월","유형","일","층","지역코드","해제여부","해제사유발생일"]
-		},
-		"land_trade": {
-			"authkey_name": "ServiceKey",
-			"base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcLandTrade",
-			"base_inputs": {
-			},
-			"required_input_list": ["LAWD_CD","DEAL_YMD"],
-            "filter_output": ["지역코드","법정동"],
-			"required_output_list": ["거래금액","거래면적","구분","년","법정동","시군구","용도지역","월","일","지목","지역코드","해제여부","해제사유발생일"]
-		}
-	}
-}
+   "api_list_to_request": {
+      "land": [
+        "land_char_WFS",
+        "land_use_WFS",
+        "land_own_WFS",
+        "land_price"
+      ],
+      "building": [
+        "bldg_year"
+      ],
+      "building_registration":[
+        "bldg_title",
+        "bldg_title_total",
+        "bldg_floor",
+        "bldg_connect"
+      ],
+      "transaction": [
+        "officetel_rent",
+        "officetel_trade",
+        "apt_rent",
+        "apt_trade",
+        "apt_right",
+        "multiple_housing_rent",
+        "multiple_housing_trade",
+        "others_trade",
+        "land_trade"
+      ]
+   },
+   "api_key_list":{
+      "land_char_WFS": {
+          "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1611000/nsdi/LandCharacteristicsService/wfs/getLandCharacteristicsWFS",
+        "base_inputs": {
+          "typename": "F251",
+          "maxFeatures": "500",
+          "srsName": "EPSG:4326",
+          "resultType": "results"
+        },
+        "required_input_list": ["pnu"],
+          "filter_output": ["NSDI:PNU"],
+        "required_output_list": ["NSDI:PNU","gml:posList","NSDI:REGSTR_SE_CODE","NSDI:LNDCGR_CODE","NSDI:LNDCGR_CODE_NM","NSDI:LNDPCL_AR","NSDI:LAD_USE_SITTN","NSDI:LAD_USE_SITTN_NM","NSDI:TPGRPH_HG_CODE","NSDI:TPGRPH_HG_CODE_NM","NSDI:TPGRPH_FRM_CODE","NSDI:TPGRPH_FRM_CODE_NM","NSDI:ROAD_SIDE_CODE","NSDI:ROAD_SIDE_CODE_NM","NSDI:FRST_REGIST_DT"]
+      },
+      "land_use_WFS": {
+          "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1611000/nsdi/LandUseService/wfs/getLandUseWFS",
+        "base_inputs": {
+          "typename": "F176",
+          "maxFeatures": "500",
+          "resultType": "results",
+          "srsName": "EPSG:4326"
+        },
+        "required_input_list": ["pnu"],
+          "filter_output": ["NSDI:PNU"],
+        "required_output_list": ["NSDI:PNU","NSDI:PRPOS_AREA_DSTRC_CODE_LIST","NSDI:PRPOS_AREA_DSTRC_NM_LIST","NSDI:CNFLC_AT_LIST","NSDI:FRST_REGIST_DT"]
+      },
+      "land_own_WFS": {
+          "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1611000/nsdi/PossessionService/wfs/getPossessionWFS",
+        "base_inputs": {
+          "typename": "F173",
+          "maxFeatures": "500",
+          "resultType": "results",
+          "srsName": "EPSG:4326"
+        },
+        "required_input_list": ["pnu"],
+          "filter_output": ["NSDI:PNU"],
+        "required_output_list": ["NSDI:PNU","NSDI:POSESN_SE_CODE","NSDI:LBL","NSDI:CNRS_PSN_CO","NSDI:AGRDE_SE_CODE","NSDI:RESDNC_SE_CODE","NSDI:OWNSHIP_CHG_CAUSE_CODE","NSDI:OWNSHIP_CHG_DE","NSDI:NATION_INSTT_SE_CODE","NSDI:FRST_REGIST_DT"]
+      },
+      "land_price": {
+          "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1611000/nsdi/IndvdLandPriceService/wfs/getIndvdLandPriceWFS",
+        "base_inputs": {
+          "typename": "F166",
+          "maxFeatures": "500",
+          "resultType": "results",
+          "srsName": "EPSG:4326"
+        },
+        "required_input_list": ["pnu"],
+          "filter_output": ["NSDI:PNU"],
+        "required_output_list": ["NSDI:PNU","NSDI:PBLNTF_PCLND_STDR_YEAR","NSDI:PBLNTF_PCLND_STDR_MT","NSDI:STD_LAND_AT","NSDI:PBLNTF_PCLND","NSDI:PSTYR_1_PBLNTF_PCLND","NSDI:PSTYR_2_PBLNTF_PCLND","NSDI:PSTYR_3_PBLNTF_PCLND","NSDI:PSTYR_4_PBLNTF_PCLND","NSDI:FRST_REGIST_DT"]
+      },
+      "bldg_year": {
+          "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1611000/nsdi/BuildingAgeService/wfs/getBuildingAgeWFS",
+        "base_inputs": {
+          "typename": "F252",
+          "maxFeatures": "500",
+          "resultType": "results",
+          "srsName": "EPSG:4326"
+        },
+        "required_input_list": ["pnu"],
+          "filter_output": ["NSDI:PNU"],
+        "required_output_list": ["gml:posList","NSDI:GIS_IDNTFC_NO","NSDI:PNU","NSDI:BULD_IDNTFC_NO","NSDI:AGBLDG_SE_CODE","NSDI:BULD_KND_CODE","NSDI:BULD_NM","NSDI:BULD_DONG_NM","NSDI:BULD_TOTAR","NSDI:GROUND_FLOOR_CO","NSDI:UNDGRND_FLOOR_CO","NSDI:FRST_REGIST_DT"]
+      },
+      "bldg_title": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrTitleInfo",
+        "base_inputs": {
+          "numOfRows": "1000000",
+          "platGbCd": "0"
+        },
+        "required_input_list": ["sigunguCd","bjdongCd"],
+          "filter_output": [],
+        "required_output_list": ["mgmBldrgstPk","mainPurpsCd","mainPurpsCdNm","etcPurps","roofCd","roofCdNm","etcRoof","hhldCnt","fmlyCnt","hoCnt","heit","grndFlrCnt","ugrndFlrCnt","rideUseElvtCnt","emgenUseElvtCnt","atchBldCnt","atchBldArea","totDongTotArea","indrMechUtcnt","indrMechArea","oudrMechUtcnt","oudrMechArea","indrAutoUtcnt","indrAutoArea","pmsDay","stcnsDay","useAprDay","engrGrade","engrRat","engrEpi","gnBldGrade","gnBldCert","itgBldGrade","itgBldCert","crtnDay","platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","regstrGbCd","regstrGbCdNm","regstrKindCd","regstrKindCdNm","bldNm","dongNm","newPlatPlc","splotNm","bylotCnt","naRoadCd","naBjdongCd","naUgrndCd","naMainBun","naSubBun","mainAtchGbCd","mainAtchGbCdNm","platArea","archArea","bcRat","totArea","vlRatEstmTotArea","vlRat","strctCd","etcStrct","rserthqkDsgnApplyYn","rserthqkAblty"]
+      },
+      "bldg_title_total": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrRecapTitleInfo",
+        "base_inputs": {
+          "numOfRows": "1000000",
+          "platGbCd": "0"
+        },
+        "required_input_list": ["sigunguCd","bjdongCd"],
+          "filter_output": [],
+        "required_output_list": ["mgmBldrgstPk","mainPurpsCd","mainPurpsCdNm","etcPurps","hhldCnt","fmlyCnt","hoCnt","mainBldCnt","atchBldCnt","atchBldArea","totPkngCnt","indrMechUtcnt","indrMechArea","oudrMechUtcnt","oudrMechArea","indrAutoUtcnt","indrAutoArea","pmsDay","stcnsDay","useAprDay","engrGrade","engrRat","engrEpi","gnBldGrade","gnBldCert","itgBldGrade","itgBldCert","crtnDay","platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","regstrGbCd","regstrGbCdNm","regstrKindCd","regstrKindCdNm","bldNm","newPlatPlc","splotNm","bylotCnt","naRoadCd","naBjdongCd","naUgrndCd","naMainBun","naSubBun","platArea","archArea","bcRat","totArea","vlRatEstmTotArea","vlRat","newOldRegstrGbCd","newOldRegstrGbCdNm"]
+      },
+      "bldg_floor": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrFlrOulnInfo",
+        "base_inputs": {
+          "numOfRows": "100000000",
+          "platGbCd": "0"
+        },
+        "required_input_list": ["sigunguCd","bjdongCd"],
+          "filter_output": [],
+        "required_output_list": ["platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","mgmBldrgstPk","flrGbCd","flrGbCdNm","flrNo","flrNoNm","strctCd","strctCdNm","etcStrct","mainPurpsCd","mainPurpsCdNm","etcPurps","area","areaExctYn","crtnDay"]
+      },
+      "bldg_connect": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrAtchJibunInfo",
+        "base_inputs": {
+          "numOfRows": "10000000",
+          "platGbCd": "0"
+        },
+        "required_input_list": ["sigunguCd","bjdongCd"],
+          "filter_output": [],
+        "required_output_list": ["platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","mgmBldrgstPk","atchRegstrGbCd","atchRegstrGbCdNm","atchSigunguCd","atchBjdongCd","atchPlatGbCd","atchBun","atchJi","atchSplotNm","crtnDay","regstrKindCd","regstrKindCdNm"]
+      },
+      "officetel_rent": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcOffiRent",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동","지번"],
+        "required_output_list": ["건축년도","년","단지","법정동","보증금","시군구","월","월세","일","전용면적","지번","지역코드","층"]
+      },
+      "officetel_trade": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcOffiTrade",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동","지번"],
+        "required_output_list": ["거래금액","건축년도","년","단지","법정동","시군구","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
+      },
+      "apt_rent": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptRent",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동","지번"],
+        "required_output_list": ["건축년도","년","법정동","보증금액","아파트","월","월세금액","일","전용면적","지번","지역코드","층"]
+      },
+      "apt_trade": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동","지번"],
+        "required_output_list": ["거래금액","건축년도","년","법정동","아파트","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
+      },
+      "apt_right": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcSilvTrade",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동","지번"],
+        "required_output_list": ["거래금액","년","단지","법정동","시군구","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
+      },
+      "multiple_housing_rent": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHRent",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동","지번"],
+        "required_output_list": ["건축년도","년","법정동","보증금액","연립다세대","월","월세금액","일","전용면적","지번","지역코드","층"]
+      },
+      "multiple_housing_trade": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동","지번"],
+        "required_output_list": ["거래금액","건축년도","년","대지권면적","법정동","연립다세대","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
+      },
+      "single_housing_rent": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcSHRent",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동"],
+        "required_output_list": ["건축년도","계약면적","년","법정동","보증금액","월","월세금액","일","지역코드"]
+      },
+      "single_housing_trade": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcSHTrade",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동"],
+        "required_output_list": ["거래금액","건축년도","년","대지면적","법정동","연면적","월","일","주택유형","지역코드","해제여부","해제사유발생일"]
+      },
+      "others_trade": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcNrgTrade",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동"],
+        "required_output_list": ["거래금액","건물면적","건물주용도","건축년도","년","대지면적","법정동","시군구","용도지역","월","유형","일","층","지역코드","해제여부","해제사유발생일"]
+      },
+      "land_trade": {
+        "authkey_name": "ServiceKey",
+        "base_url": "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcLandTrade",
+        "base_inputs": {
+        },
+        "required_input_list": ["LAWD_CD","DEAL_YMD"],
+          "filter_output": ["지역코드","법정동"],
+        "required_output_list": ["거래금액","거래면적","구분","년","법정동","시군구","용도지역","월","일","지목","지역코드","해제여부","해제사유발생일"]
+      }
+   }
+ }

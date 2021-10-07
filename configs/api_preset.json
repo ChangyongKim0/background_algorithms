@@ -22,7 +22,9 @@
         "apt_trade",
         "apt_right",
         "multiple_housing_rent",
-        "multiple_housing_trade",
+        "multiple_housing_trade"
+      ],
+      "transaction_need_analysis": [
         "others_trade",
         "land_trade"
       ]
@@ -124,7 +126,7 @@
         },
         "required_input_list": ["sigunguCd","bjdongCd"],
           "filter_output": [],
-        "required_output_list": ["platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","mgmBldrgstPk","flrGbCd","flrGbCdNm","flrNo","flrNoNm","strctCd","strctCdNm","etcStrct","mainPurpsCd","mainPurpsCdNm","etcPurps","area","areaExctYn","crtnDay"]
+        "required_output_list": ["rnum", "platPlc","sigunguCd","bjdongCd","platGbCd","bun","ji","mgmBldrgstPk","flrGbCd","flrGbCdNm","flrNo","flrNoNm","strctCd","strctCdNm","etcStrct","mainPurpsCd","mainPurpsCdNm","etcPurps","area","areaExctYn","crtnDay"]
       },
       "bldg_connect": {
         "authkey_name": "ServiceKey",

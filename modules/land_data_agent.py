@@ -199,5 +199,6 @@ if __name__ == "__main__":
     land_data_agent = LandDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
     # land_data_agent.create(["TEST"])
+    land_data_agent.create(["CBD"])
     # land_data_agent._distributeDataByLonLat("CBD")
     # land_data_agent.createDBType("GBD")

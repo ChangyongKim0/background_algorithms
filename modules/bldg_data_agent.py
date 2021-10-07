@@ -63,22 +63,23 @@ class BldgDataAgent:
             os.mkdir(dir_path)
         return dir_path
 
-    def _distributeDataByLonLat(self, service_name):
-        code_gen = lat_lng_code_generator.LatLngCodeGenerator(service_name)
-        file_list = os.listdir(
-            "{}/../data/bldg_data/raw/{}".format(os.path.dirname(__file__), service_name))
+    def _createBldgDataTree(self, service_name, file_list):
         giant_data = {}
+        code_gen = lat_lng_code_generator.LatLngCodeGenerator(service_name)
         for file_name in file_list:
+            self.log("distribute data in file {}".format(file_name))
             api_type = file_name.split(".")[0]
             with open("{}/../data/bldg_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, file_name), "r", encoding="utf-8") as f:
                 data = json.load(f)
+            self.log("raw data length is {}.".format(len(data)))
             for each_data in data:
                 id_data = self.id_generator.convert(api_type, each_data)
-                self.log(id_data)
+                # self.log(id_data)
                 pnu = id_data["id"]
+                count = id_data["id_count"]
                 latlng = code_gen.get(pnu)
                 if latlng == -1:
-                    break
+                    continue
                 lat, lng = latlng["lat_code"], latlng["lng_code"]
                 if lat not in giant_data.keys():
                     giant_data[lat] = {}
@@ -86,29 +87,57 @@ class BldgDataAgent:
                     giant_data[lat][lng] = {}
                 if pnu not in giant_data[lat][lng].keys():
                     giant_data[lat][lng][pnu] = {
-                        "id": pnu, "service_name": service_name, "bldg_list": []}
-                if id_data["id_count"] > 1:
-                    each_data_converted = {
-                        "id_2": id_data["id_2"], "service_name": service_name}
-                    for each_key, each_val in each_data.items():
-                        each_data_converted[self.code_translator.translate(
-                            api_type, each_key)] = each_val
-                    giant_data[lat][lng][pnu]["bldg_list"].append(
-                        each_data_converted)
-                else:
-                    for each_key, each_val in each_data.items():
+                        "id": pnu, "service_name": service_name, "bldg_list": {}}
+                if count > 1 and id_data["id_2"] not in giant_data[lat][lng][pnu]["bldg_list"].keys():
+                    giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]] = {
+                        "id": id_data["id_2"], "floor_list": {}}
+                if count > 2 and id_data["id_3"] not in giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"].keys():
+                    giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]] = {
+                        "id": id_data["id_3"], "room_list": {}}
+                if count > 3 and id_data["id_4"] not in giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"].keys():
+                    giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"][id_data["id_4"]] = {
+                        "id": id_data["id_4"]}
+                for each_key, each_val in each_data.items():
+                    if count == 1:
                         giant_data[lat][lng][pnu][self.code_translator.translate(
                             api_type, each_key)] = each_val
+                    elif count == 2:
+                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]][self.code_translator.translate(
+                            api_type, each_key)] = each_val
+                    elif count == 3:
+                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]][self.code_translator.translate(
+                            api_type, each_key)] = each_val
+                    elif count == 4:
+                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"][id_data["id_4"]][self.code_translator.translate(
+                            api_type, each_key)] = each_val
+            self.log("distribution of file {} finished.".format(file_name))
+
+    def distributeDataByLonLat(self, service_name):
+        file_list = os.listdir(
+            "{}/../data/bldg_data/raw/{}".format(os.path.dirname(__file__), service_name))
+        giant_data = self._createBldgDataTree(service_name, file_list)
         file_path = "{}/../data/bldg_data".format(os.path.dirname(__file__))
         dist_file_path = self._createDir(file_path+"/dist")
         for lat, lat_data in giant_data.items():
             self._createDir(dist_file_path+"/"+lat)
             for lng, lng_data in lat_data.items():
-                data_list = []
-                for val in lng_data.values():
-                    data_list.append(val)
+                pnu_list = []
+                for pnu_data in lng_data.values():
+                    bldg_list = []
+                    for bldg_data in pnu_data["bldg_list"].values():
+                        floor_list = []
+                        for floor_data in bldg_data["floor_list"].values():
+                            room_list = []
+                            for room_data in floor_data["room_list"].values():
+                                room_list.append(room_data)
+                            floor_data["room_list"] = room_list
+                            floor_list.append(floor_data)
+                        bldg_data["floor_list"] = floor_list
+                        bldg_list.append(bldg_data)
+                    pnu_data["bldg_list"] = bldg_list   
+                    pnu_list.append(pnu_data)
                 with open("{}/{}/{}.json".format(dist_file_path, lat, lng), "w", encoding="utf-8") as f:
-                    json.dump(data_list, f, indent=4, ensure_ascii=False)
+                    json.dump(pnu_list, f, indent=4, ensure_ascii=False)
 
     def createDBType(self, service_name):
         distribution_data = self._saveLatLngCodeData(service_name)
@@ -172,14 +201,14 @@ class BldgDataAgent:
                 self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list)
             self.get_api_by_seperated_pnu.getApi(
                 self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list_seperated)
-            self._distributeDataByLonLat(service)
+            self.distributeDataByLonLat(service)
         self.log("data successfully distributed")
 
 
 if __name__ == "__main__":
     bldg_data_agent = BldgDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
-    # bldg_data_agent.create(["TEST"])
-    bldg_data_agent._distributeDataByLonLat("TEST")
+    bldg_data_agent.create(["TEST"])
+    # bldg_data_agent.distributeDataByLonLat("TEST")
     # land_data_agent.createDBType("GBD")
     # print(bldg_data_agent._getSeperatedPnu("1101202030"))

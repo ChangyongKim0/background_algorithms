@@ -71,7 +71,10 @@ class IdentificationNumberGenerator:
             id = data["sigunguCd"] + data["bjdongCd"] + \
                 temp + data["bun"] + data["ji"]
             id_2 = data["mgmBldrgstPk"]
-            return {"id_count": 2, "id": id, "id_2": id_2}
+            id_3 = data["flrGbCd"] + data["flrNo"].split(".")[0]
+            id_4 = data["rnum"]
+            return {"id_count": 4, "id": id, "id_2": id_2, "id_3": id_3, "id_4": id_4}
+            # 4개로
         elif type == "bldg_title":
             if data["platGbCd"] == "0":
                 temp = "1"

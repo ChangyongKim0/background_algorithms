@@ -38,7 +38,7 @@ class IdentificationNumberGenerator:
         return converted
 
     def convert(self, type, data):
-        if type in ["officetel_rent", "officetel_trade"]:
+        if type in ["officetel_rent", "officetel_trade", "apt_right"]:
             jibun = data["지번"].split('-')
             if len(jibun) == 1:
                 jibun_code = self._fillZero(jibun[0]) + "0000"
@@ -48,7 +48,7 @@ class IdentificationNumberGenerator:
             id = self._convertBJD("서울특별시 {}{}".format(
                 data["시군구"], data["법정동"])) + "1" + jibun_code
             return {"id_count": 1, "id": id}
-        elif type in ["apt_rent", "apt_trade", "apt_right", "multiple_housing_rent", "multiple_housing_trade"]:
+        elif type in ["apt_rent", "apt_trade", "multiple_housing_rent", "multiple_housing_trade"]:
             gu_name = self._convertBJD(data["지역코드"]+"00000")
             jibun = data["지번"].split('-')
             if len(jibun) == 1:
@@ -86,15 +86,7 @@ class IdentificationNumberGenerator:
             return {"id_count": 2, "id": id, "id_2": id_2}
         elif type == "bldg_year":
             return {"id_count": 1, "id": data["NSDI:PNU"]}
-        elif type == "bldg_title_total":
-            if data["platGbCd"] == "0":
-                temp = "1"
-            else:
-                temp = "0"
-            id = data["sigunguCd"] + data["bjdongCd"] + \
-                temp + data["bun"] + data["ji"]
-            return {"id_count": 1, "id": id}
-        elif type == "bldg_connect":
+        elif type in ["bldg_title_total", "bldg_connect"]:
             if data["platGbCd"] == "0":
                 temp = "1"
             else:

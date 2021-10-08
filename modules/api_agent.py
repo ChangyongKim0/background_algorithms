@@ -93,6 +93,7 @@ class ApiAgent:
                 self._throwUrlError()
             except:
                 -1
+        # self.log(output)
         return output
 
     def _throwUrlError(self):
@@ -121,7 +122,11 @@ class ApiAgent:
                 if key_data['val']:
                     val_data_list.append(
                         self._getValByPath(data, key_data['path']))
+                else:
+                    val_data_list.append(-1)
+            # print(val_data_list)
             data_list = self._flipList(val_data_list)
+            # print(data_list)
         return {'keys': keys, 'vals': data_list}
 
     def _flipList(self, data):
@@ -134,11 +139,16 @@ class ApiAgent:
             for i in range(len(data[0])):
                 temp_data = []
                 for j in range(len(data)):
-                    temp_data.append(data[j][i])
+                    try:
+                        temp_data.append(data[j][i])
+                    except:
+                        temp_data.append(-1)
                 data_flipped.append(temp_data)
             return data_flipped
 
     def _getValByPath(self, data, path_old):
+        if path_old == -1:
+            return -1
         path = [*path_old]
         try:
             if len(path) != 1:
@@ -186,10 +196,10 @@ class ApiAgent:
             return False, -1
 
     def _toJson(self, data):
-        # print(data)
         keys = data['keys']
         vals = data['vals']
         dict_list = []
+        # print(data)
         for row in vals:
             temp_dict = {}
             for i, key in enumerate(keys):

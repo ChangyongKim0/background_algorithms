@@ -111,6 +111,7 @@ class BldgDataAgent:
                         giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"][id_data["id_4"]][self.code_translator.translate(
                             api_type, each_key)] = each_val
             self.log("distribution of file {} finished.".format(file_name))
+        return giant_data
 
     def distributeDataByLonLat(self, service_name):
         file_list = os.listdir(
@@ -199,8 +200,8 @@ class BldgDataAgent:
                             '/../data/bldg_data/raw/{}'.format(service))
             self.get_api.getApi(
                 self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list)
-            self.get_api_by_seperated_pnu.getApi(
-                self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list_seperated)
+            # self.get_api_by_seperated_pnu.getApi(
+            #     self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list_seperated)
             self.distributeDataByLonLat(service)
         self.log("data successfully distributed")
 
@@ -208,7 +209,9 @@ class BldgDataAgent:
 if __name__ == "__main__":
     bldg_data_agent = BldgDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
-    bldg_data_agent.create(["TEST"])
+    # bldg_data_agent.create(["YBD", "GBD", "CBD"])
+    # bldg_data_agent.create(["TEST"])
+    bldg_data_agent.create(["GBD"])
     # bldg_data_agent.distributeDataByLonLat("TEST")
     # land_data_agent.createDBType("GBD")
     # print(bldg_data_agent._getSeperatedPnu("1101202030"))

@@ -60,7 +60,9 @@ class IdentificationNumberGenerator:
                     jibun[0]) + self._fillZero(jibun[1])
             id = self._convertBJD("{}{}".format(
                 gu_name, data["법정동"])) + "1" + jibun_code
-            return {"id_count": 2, "id": id}
+            id_2 = data['년'] + self._fillZero(data['월'],
+                                              length=2), self._fillZero(data['일'], length=2)
+            return {"id_count": 2, "id": id, "id_2": id_2}
         elif type == "multiple_housing_trade":
             return -1
         elif type == "land_trade":
@@ -77,11 +79,11 @@ class IdentificationNumberGenerator:
             id_2 = data["mgmBldrgstPk"]
             id_3 = data["flrGbCd"] + data["flrNo"].split(".")[0]
             id_4 = data["rnum"]
-            return {"id_count": 4, "id": id, "id_2": id_2, "id_3": id_3, "id_4": id_4}
+            return {"id_type": "bldg", "id_count": 4, "id": id, "id_2": id_2, "id_3": id_3, "id_4": id_4}
             # 4개로
         elif type == "bldg_title":
             if data["sigunguCd"] == -1:
-                return {"id_count": 2, "id": "-1", "id_2": "-1"}
+                return {"id_type": "bldg", "id_count": 2, "id": "-1", "id_2": "-1"}
             if data["platGbCd"] == "0":
                 temp = "1"
             else:
@@ -89,12 +91,12 @@ class IdentificationNumberGenerator:
             id = data["sigunguCd"] + data["bjdongCd"] + \
                 temp + data["bun"] + data["ji"]
             id_2 = data["mgmBldrgstPk"]
-            return {"id_count": 2, "id": id, "id_2": id_2}
+            return {"id_type": "bldg", "id_count": 2, "id": id, "id_2": id_2}
         elif type == "bldg_year":
             if data["NSDI:PNU"] == -1:
                 return {"id_count": 1, "id": "-1"}
             return {"id_count": 1, "id": data["NSDI:PNU"]}
-        elif type in ["bldg_title_total", "bldg_connect"]:
+        elif type == "bldg_title_total":
             if data["sigunguCd"] == -1:
                 return {"id_count": 1, "id": "-1"}
             if data["platGbCd"] == "0":
@@ -104,6 +106,22 @@ class IdentificationNumberGenerator:
             id = data["sigunguCd"] + data["bjdongCd"] + \
                 temp + data["bun"] + data["ji"]
             return {"id_count": 1, "id": id}
+        elif type == "bldg_connect":
+            if data["sigunguCd"] == -1:
+                return {"id_count": 1, "id": "-1"}
+            if data["platGbCd"] == "0":
+                temp = "1"
+            else:
+                temp = "0"
+            if data["atchPlatGbCd"] == "0":
+                temp_2 = "1"
+            else:
+                temp_2 = "0"
+            id = data["sigunguCd"] + data["bjdongCd"] + \
+                temp + data["bun"] + data["ji"]
+            id_2 = data["atchSigunguCd"] + data["atchBjdongCd"] + \
+                temp + data["atchBun"] + data["atchJi"]
+            return {"id_type": "pnu", "id_count": 1, "id": id, "id_2": id_2}
         return -1
 
 

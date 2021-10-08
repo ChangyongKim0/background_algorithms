@@ -87,29 +87,41 @@ class BldgDataAgent:
                     giant_data[lat][lng] = {}
                 if pnu not in giant_data[lat][lng].keys():
                     giant_data[lat][lng][pnu] = {
-                        "id": pnu, "service_name": service_name, "bldg_list": {}}
-                if count > 1 and id_data["id_2"] not in giant_data[lat][lng][pnu]["bldg_list"].keys():
-                    giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]] = {
-                        "id": id_data["id_2"], "floor_list": {}}
-                if count > 2 and id_data["id_3"] not in giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"].keys():
-                    giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]] = {
-                        "id": id_data["id_3"], "room_list": {}}
-                if count > 3 and id_data["id_4"] not in giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"].keys():
-                    giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"][id_data["id_4"]] = {
-                        "id": id_data["id_4"]}
-                for each_key, each_val in each_data.items():
-                    if count == 1:
-                        giant_data[lat][lng][pnu][self.code_translator.translate(
-                            api_type, each_key)] = each_val
-                    elif count == 2:
-                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]][self.code_translator.translate(
-                            api_type, each_key)] = each_val
-                    elif count == 3:
-                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]][self.code_translator.translate(
-                            api_type, each_key)] = each_val
-                    elif count == 4:
-                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"][id_data["id_4"]][self.code_translator.translate(
-                            api_type, each_key)] = each_val
+                        "id": pnu, "service_name": service_name, "bldg_list": {}, "attach_pnu_list": {}}
+                if id_data["id_type"] == "bldg":
+                    if count > 1 and id_data["id_2"] not in giant_data[lat][lng][pnu]["bldg_list"].keys():
+                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]] = {
+                            "id": id_data["id_2"], "floor_list": {}}
+                    if count > 2 and id_data["id_3"] not in giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"].keys():
+                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]] = {
+                            "id": id_data["id_3"], "room_list": {}}
+                    if count > 3 and id_data["id_4"] not in giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"].keys():
+                        giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"][id_data["id_4"]] = {
+                            "id": id_data["id_4"]}
+                    for each_key, each_val in each_data.items():
+                        if count == 1:
+                            giant_data[lat][lng][pnu][self.code_translator.translate(
+                                api_type, each_key)] = each_val
+                        elif count == 2:
+                            giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]][self.code_translator.translate(
+                                api_type, each_key)] = each_val
+                        elif count == 3:
+                            giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]][self.code_translator.translate(
+                                api_type, each_key)] = each_val
+                        elif count == 4:
+                            giant_data[lat][lng][pnu]["bldg_list"][id_data["id_2"]]["floor_list"][id_data["id_3"]]["room_list"][id_data["id_4"]][self.code_translator.translate(
+                                api_type, each_key)] = each_val
+                elif id_data["id_type"] == "pnu":
+                    if count > 1 and id_data["id_2"] not in giant_data[lat][lng][pnu]["attach_pnu_list"].keys():
+                        giant_data[lat][lng][pnu]["attach_pnu_list"][id_data["id_2"]] = {
+                            "id": id_data["id_2"]}
+                    for each_key, each_val in each_data.items():
+                        if count == 1:
+                            giant_data[lat][lng][pnu][self.code_translator.translate(
+                                api_type, each_key)] = each_val
+                        elif count == 2:
+                            giant_data[lat][lng][pnu]["attach_pnu_list"][id_data["id_2"]][self.code_translator.translate(
+                                api_type, each_key)] = each_val
             self.log("distribution of file {} finished.".format(file_name))
         return giant_data
 
@@ -126,6 +138,7 @@ class BldgDataAgent:
                 pnu_list = []
                 for pnu_data in lng_data.values():
                     bldg_list = []
+                    attach_pnu_list = []
                     for bldg_data in pnu_data["bldg_list"].values():
                         floor_list = []
                         for floor_data in bldg_data["floor_list"].values():
@@ -136,7 +149,10 @@ class BldgDataAgent:
                             floor_list.append(floor_data)
                         bldg_data["floor_list"] = floor_list
                         bldg_list.append(bldg_data)
+                    for attach_pnu_data in pnu_data["attach_pnu_list"].values():
+                        attach_pnu_list.append(attach_pnu_data)
                     pnu_data["bldg_list"] = bldg_list
+                    pnu_data["attach_pnu_list"] = attach_pnu_list
                     pnu_list.append(pnu_data)
                 with open("{}/{}/{}.json".format(dist_file_path, lat, lng), "w", encoding="utf-8") as f:
                     json.dump(pnu_list, f, indent=4, ensure_ascii=False)
@@ -212,8 +228,8 @@ if __name__ == "__main__":
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
     # bldg_data_agent.create(["YBD", "GBD", "CBD"])
     # bldg_data_agent.create(["TEST"])
-    bldg_data_agent.create(["CBD"])
+    # bldg_data_agent.create(["CBD"])
     # bldg_data_agent.distributeDataByLonLat("GBD")
-    # bldg_data_agent.distributeDataByLonLat("TEST")
+    bldg_data_agent.distributeDataByLonLat("TEST")
     # land_data_agent.createDBType("GBD")
     # print(bldg_data_agent._getSeperatedPnu("1101202030"))

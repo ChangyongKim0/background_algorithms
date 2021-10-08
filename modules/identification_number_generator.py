@@ -42,19 +42,29 @@ class IdentificationNumberGenerator:
             converted += "0"
         converted += data
         return converted
+    
+    def _fillSpace(self, data):
+        if data[0] == " ":
+            return data
+        data = ' ' + data
+        return data
 
     def convert(self, type, data):
         if type in ["officetel_rent", "officetel_trade", "apt_right"]:
             if data["년"] == -1:
                 return {"id_count": 3, "id": -1, "id_2": -1, "id_3": -1}
-            jibun = data["지번"].split('-')
+            try:
+                jibun = data["지번"].split('-')
+            except:
+                print(type, data)
+                jibun = data["지번"].split('-')
             if len(jibun) == 1:
                 jibun_code = self._fillZero(jibun[0]) + "0000"
             else:
                 jibun_code = self._fillZero(
                     jibun[0]) + self._fillZero(jibun[1])
             id = self._convertBJD("서울특별시 {}{}".format(
-                data["시군구"], data["법정동"])) + "1" + jibun_code
+                data["시군구"], self._fillSpace(data["법정동"]))) + "1" + jibun_code
             id_2 = data['년'] + self._fillZero(data['월'],
                                               length=2), self._fillZero(data['일'], length=2)
             id_3 = self._getNewRandomId()
@@ -70,7 +80,7 @@ class IdentificationNumberGenerator:
                 jibun_code = self._fillZero(
                     jibun[0]) + self._fillZero(jibun[1])
             id = self._convertBJD("{}{}".format(
-                gu_name, data["법정동"])) + "1" + jibun_code
+                gu_name, self._fillSpace(data["법정동"]))) + "1" + jibun_code
             id_2 = data['년'] + self._fillZero(data['월'],
                                               length=2), self._fillZero(data['일'], length=2)
             id_3 = self._getNewRandomId()

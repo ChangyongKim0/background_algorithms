@@ -40,10 +40,14 @@ class TransactionDataAgent:
             print('TransactionDataAgent> \033[91m{}'.format(
                 content) + '\033[0m')
 
-    def importantLog(self, content, echo):
+    def importantLog(self, content, echo=-1):
+        prev_echo = self.echo
         self.echo = True
         self.log(content)
-        self.echo = echo
+        if echo == -1:
+            self.echo = prev_echo
+        else:
+            self.echo = echo
 
     def _createKey(self, dict, key):
         if key not in dict.keys():
@@ -90,13 +94,14 @@ class TransactionDataAgent:
             for file_name in file_list:
                 self.log("distribute data in file {}".format(file_name))
                 api_type = file_name.split(".")[0]
-                with open("{}/../data/transaction_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, file_name), "r", encoding="utf-8") as f:
+                with open("{}/../data/transaction_data/raw/{}/{}/{}".format(os.path.dirname(__file__), service_name, dir_name, file_name), "r", encoding="utf-8") as f:
                     data = json.load(f)
                 self.log("raw data length is {}.".format(len(data)))
                 for each_data in data:
                     id_data = self.id_generator.convert(api_type, each_data)
                     # self.log(id_data)
                     pnu = id_data["id"]
+                    count = id_data["id_count"]
                     latlng = code_gen.get(pnu)
                     if latlng == -1:
                         continue
@@ -107,10 +112,23 @@ class TransactionDataAgent:
                         giant_data[lat][lng] = {}
                     if pnu not in giant_data[lat][lng].keys():
                         giant_data[lat][lng][pnu] = {
-                            "id": pnu, "service_name": service_name}
+                            "id": pnu, "service_name": service_name, "transaction_list": {}}
+                    if count > 1 and id_data["id_2"] not in giant_data[lat][lng][pnu]["transaction_list"].keys():
+                        giant_data[lat][lng][pnu]["transaction_list"][id_data["id_2"]] = {
+                            "id": id_data["id_2"], "estate_list": {}}
+                    if count > 2 and id_data["id_3"] not in giant_data[lat][lng][pnu]["transaction_list"][id_data["id_2"]]["estate_list"].keys():
+                        giant_data[lat][lng][pnu]["transaction_list"][id_data["id_2"]]["estate_list"][id_data["id_3"]] = {
+                            "id": id_data["id_3"]}
                     for each_key, each_val in each_data.items():
-                        giant_data[lat][lng][pnu][self.code_translator.translate(
-                            api_type, each_key)] = each_val
+                        if count == 1:
+                            giant_data[lat][lng][pnu][self.code_translator.translate(
+                                api_type, each_key)] = each_val
+                        elif count == 2:
+                            giant_data[lat][lng][pnu]["transaction_list"][id_data["id_2"]][self.code_translator.translate(
+                                api_type, each_key)] = each_val
+                        elif count == 3:
+                            giant_data[lat][lng][pnu]["transaction_list"][id_data["id_2"]]["estate_list"][id_data["id_3"]][self.code_translator.translate(
+                                api_type, each_key)] = each_val
                 self.importantLog(
                     "distribution of file {} finished.".format(file_name))
             self.importantLog(
@@ -128,6 +146,14 @@ class TransactionDataAgent:
             for lng, lng_data in lat_data.items():
                 pnu_list = []
                 for pnu_data in lng_data.values():
+                    transaction_list = []
+                    for transaction_data in pnu_data["transaction_list"].values():
+                        estate_list = []
+                        for estate_data in transaction_data["estate_list"].values():
+                            estate_list.append(estate_data)
+                        transaction_data["estate_list"] = estate_list
+                        transaction_list.append(transaction_data)
+                    pnu_data["transaction_list"] = transaction_list
                     pnu_list.append(pnu_data)
                 with open("{}/{}/{}.json".format(dist_file_path, lat, lng), "w", encoding="utf-8") as f:
                     json.dump(pnu_list, f, indent=4, ensure_ascii=False)
@@ -222,8 +248,8 @@ class TransactionDataAgent:
 if __name__ == "__main__":
     transaction_data_agent = TransactionDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
-    transaction_data_agent.create(
-        ["CBD", "YBD", "GBD"], '200101', '201412', echo=False)
-    # transaction_data_agent.distributeDataByLonLat("TEST")
+    # transaction_data_agent.create(
+    #     ["CBD", "YBD", "GBD"], '200101', '201412', echo=False)
+    transaction_data_agent.distributeDataByLonLat("TEST")
     # land_data_agent.createDBType("GBD")
     # print(transaction_data_agent._getSeperatedPnu("1101202030"))

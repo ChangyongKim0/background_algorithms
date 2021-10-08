@@ -99,7 +99,7 @@
         "authkey_name": "ServiceKey",
         "base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrTitleInfo",
         "base_inputs": {
-          "numOfRows": "1000000",
+          "numOfRows": "100000000",
           "platGbCd": "0"
         },
         "required_input_list": ["sigunguCd","bjdongCd"],
@@ -110,7 +110,7 @@
         "authkey_name": "ServiceKey",
         "base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrRecapTitleInfo",
         "base_inputs": {
-          "numOfRows": "1000000",
+          "numOfRows": "100000000",
           "platGbCd": "0"
         },
         "required_input_list": ["sigunguCd","bjdongCd"],
@@ -132,7 +132,7 @@
         "authkey_name": "ServiceKey",
         "base_url": "http://apis.data.go.kr/1613000/BldRgstService_v2/getBrAtchJibunInfo",
         "base_inputs": {
-          "numOfRows": "10000000",
+          "numOfRows": "1000000000",
           "platGbCd": "0"
         },
         "required_input_list": ["sigunguCd","bjdongCd"],

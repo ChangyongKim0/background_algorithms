@@ -69,7 +69,7 @@ class IdentificationNumberGenerator:
             return -1
         elif type == "bldg_floor":
             if data["sigunguCd"] == -1:
-                return {"id_count": 4, "id": "-1", "id_2": "-1", "id_3": "-1", "id_4": "-1"}
+                return {"id_type": "bldg", "id_count": 4, "id": "-1", "id_2": "-1", "id_3": "-1", "id_4": "-1"}
             if data["platGbCd"] == "0":
                 temp = "1"
             else:
@@ -94,21 +94,21 @@ class IdentificationNumberGenerator:
             return {"id_type": "bldg", "id_count": 2, "id": id, "id_2": id_2}
         elif type == "bldg_year":
             if data["NSDI:PNU"] == -1:
-                return {"id_count": 1, "id": "-1"}
-            return {"id_count": 1, "id": data["NSDI:PNU"]}
+                return {"id_type": "bldg", "id_count": 1, "id": "-1"}
+            return {"id_type": "bldg", "id_count": 1, "id": data["NSDI:PNU"]}
         elif type == "bldg_title_total":
             if data["sigunguCd"] == -1:
-                return {"id_count": 1, "id": "-1"}
+                return {"id_type": "bldg", "id_count": 1, "id": "-1"}
             if data["platGbCd"] == "0":
                 temp = "1"
             else:
                 temp = "0"
             id = data["sigunguCd"] + data["bjdongCd"] + \
                 temp + data["bun"] + data["ji"]
-            return {"id_count": 1, "id": id}
+            return {"id_type": "bldg", "id_count": 1, "id": id}
         elif type == "bldg_connect":
             if data["sigunguCd"] == -1:
-                return {"id_count": 1, "id": "-1"}
+                return {"id_type": "pnu", "id_count": 2, "id": "-1", "id_2": "-1"}
             if data["platGbCd"] == "0":
                 temp = "1"
             else:
@@ -119,9 +119,12 @@ class IdentificationNumberGenerator:
                 temp_2 = "0"
             id = data["sigunguCd"] + data["bjdongCd"] + \
                 temp + data["bun"] + data["ji"]
-            id_2 = data["atchSigunguCd"] + data["atchBjdongCd"] + \
-                temp + data["atchBun"] + data["atchJi"]
-            return {"id_type": "pnu", "id_count": 1, "id": id, "id_2": id_2}
+            try:
+                id_2 = data["atchSigunguCd"] + data["atchBjdongCd"] + \
+                    temp_2 + data["atchBun"] + data["atchJi"]
+            except:
+                return {"id_type": "pnu", "id_count": 2, "id": "-1", "id_2": "-1"}
+            return {"id_type": "pnu", "id_count": 2, "id": id, "id_2": id_2}
         return -1
 
 

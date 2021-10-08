@@ -29,8 +29,8 @@ class IdentificationNumberGenerator:
         else:
             return self.sigungu_code_list["from_code"][data]
 
-    def _fillZero(self, data):
-        zero_number = 4 - len(data)
+    def _fillZero(self, data, length=4):
+        zero_number = length - len(data)
         converted = ""
         for i in range(zero_number):
             converted += "0"
@@ -47,7 +47,9 @@ class IdentificationNumberGenerator:
                     jibun[0]) + self._fillZero(jibun[1])
             id = self._convertBJD("서울특별시 {}{}".format(
                 data["시군구"], data["법정동"])) + "1" + jibun_code
-            return {"id_count": 1, "id": id}
+            id_2 = data['년'] + self._fillZero(data['월'],
+                                              length=2), self._fillZero(data['일'], length=2)
+            return {"id_count": 2, "id": id, "id_2": id_2}
         elif type in ["apt_rent", "apt_trade", "multiple_housing_rent", "multiple_housing_trade"]:
             gu_name = self._convertBJD(data["지역코드"]+"00000")
             jibun = data["지번"].split('-')
@@ -58,12 +60,14 @@ class IdentificationNumberGenerator:
                     jibun[0]) + self._fillZero(jibun[1])
             id = self._convertBJD("{}{}".format(
                 gu_name, data["법정동"])) + "1" + jibun_code
-            return {"id_count": 1, "id": id}
+            return {"id_count": 2, "id": id}
         elif type == "multiple_housing_trade":
             return -1
         elif type == "land_trade":
             return -1
         elif type == "bldg_floor":
+            if data["sigunguCd"] == -1:
+                return {"id_count": 4, "id": "-1", "id_2": "-1", "id_3": "-1", "id_4": "-1"}
             if data["platGbCd"] == "0":
                 temp = "1"
             else:
@@ -76,6 +80,8 @@ class IdentificationNumberGenerator:
             return {"id_count": 4, "id": id, "id_2": id_2, "id_3": id_3, "id_4": id_4}
             # 4개로
         elif type == "bldg_title":
+            if data["sigunguCd"] == -1:
+                return {"id_count": 2, "id": "-1", "id_2": "-1"}
             if data["platGbCd"] == "0":
                 temp = "1"
             else:
@@ -85,8 +91,12 @@ class IdentificationNumberGenerator:
             id_2 = data["mgmBldrgstPk"]
             return {"id_count": 2, "id": id, "id_2": id_2}
         elif type == "bldg_year":
+            if data["NSDI:PNU"] == -1:
+                return {"id_count": 1, "id": "-1"}
             return {"id_count": 1, "id": data["NSDI:PNU"]}
         elif type in ["bldg_title_total", "bldg_connect"]:
+            if data["sigunguCd"] == -1:
+                return {"id_count": 1, "id": "-1"}
             if data["platGbCd"] == "0":
                 temp = "1"
             else:

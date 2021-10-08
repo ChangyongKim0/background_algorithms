@@ -9,11 +9,17 @@ sigungu_code_path = "{}/../configs/sigungu_code.json".format(
 
 class IdentificationNumberGenerator:
     def __init__(self, echo=True, echo_error=True):
+        self.random_id = "0"
         self.echo = echo
         self.echo_error = echo_error
         with open(sigungu_code_path, "r", encoding="utf-8") as json_file:
             self.sigungu_code_list = json.load(json_file)
         self.log("sigungu code is loaded.")
+
+    def _getNewRandomId(self):
+        random_id =  self.random_id
+        self.random_id = str(int(random_id) + 1)
+        return random_id
 
     def log(self, content):
         if self.echo:
@@ -39,6 +45,8 @@ class IdentificationNumberGenerator:
 
     def convert(self, type, data):
         if type in ["officetel_rent", "officetel_trade", "apt_right"]:
+            if data["년"] == -1:
+                return {"id_count": 3, "id": -1, "id_2": -1, "id_3": -1}
             jibun = data["지번"].split('-')
             if len(jibun) == 1:
                 jibun_code = self._fillZero(jibun[0]) + "0000"
@@ -49,8 +57,11 @@ class IdentificationNumberGenerator:
                 data["시군구"], data["법정동"])) + "1" + jibun_code
             id_2 = data['년'] + self._fillZero(data['월'],
                                               length=2), self._fillZero(data['일'], length=2)
-            return {"id_count": 2, "id": id, "id_2": id_2}
+            id_3 = self._getNewRandomId()
+            return {"id_count": 3, "id": id, "id_2": id_2, "id_3": id_3}
         elif type in ["apt_rent", "apt_trade", "multiple_housing_rent", "multiple_housing_trade"]:
+            if data["년"] == -1:
+                return {"id_count": 3, "id": -1, "id_2": -1, "id_3": -1}
             gu_name = self._convertBJD(data["지역코드"]+"00000")
             jibun = data["지번"].split('-')
             if len(jibun) == 1:
@@ -62,7 +73,8 @@ class IdentificationNumberGenerator:
                 gu_name, data["법정동"])) + "1" + jibun_code
             id_2 = data['년'] + self._fillZero(data['월'],
                                               length=2), self._fillZero(data['일'], length=2)
-            return {"id_count": 2, "id": id, "id_2": id_2}
+            id_3 = self._getNewRandomId()
+            return {"id_count": 3, "id": id, "id_2": id_2, "id_3": id_3}
         elif type == "multiple_housing_trade":
             return -1
         elif type == "land_trade":

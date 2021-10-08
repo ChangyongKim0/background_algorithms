@@ -31,7 +31,7 @@
    },
    "api_key_list":{
       "land_char_WFS": {
-          "authkey_name": "ServiceKey",
+        "authkey_name": "ServiceKey",
         "base_url": "http://apis.data.go.kr/1611000/nsdi/LandCharacteristicsService/wfs/getLandCharacteristicsWFS",
         "base_inputs": {
           "typename": "F251",
@@ -40,7 +40,7 @@
           "resultType": "results"
         },
         "required_input_list": ["pnu"],
-          "filter_output": ["NSDI:PNU"],
+        "filter_output": ["NSDI:PNU"],
         "required_output_list": ["NSDI:PNU","gml:posList","NSDI:REGSTR_SE_CODE","NSDI:LNDCGR_CODE","NSDI:LNDCGR_CODE_NM","NSDI:LNDPCL_AR","NSDI:LAD_USE_SITTN","NSDI:LAD_USE_SITTN_NM","NSDI:TPGRPH_HG_CODE","NSDI:TPGRPH_HG_CODE_NM","NSDI:TPGRPH_FRM_CODE","NSDI:TPGRPH_FRM_CODE_NM","NSDI:ROAD_SIDE_CODE","NSDI:ROAD_SIDE_CODE_NM","NSDI:FRST_REGIST_DT"]
       },
       "land_use_WFS": {
@@ -145,7 +145,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동","지번"],
+        "filter_output": [],
         "required_output_list": ["건축년도","년","단지","법정동","보증금","시군구","월","월세","일","전용면적","지번","지역코드","층"]
       },
       "officetel_trade": {
@@ -154,7 +154,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동","지번"],
+        "filter_output": [],
         "required_output_list": ["거래금액","건축년도","년","단지","법정동","시군구","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
       },
       "apt_rent": {
@@ -163,7 +163,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동","지번"],
+        "filter_output": [],
         "required_output_list": ["건축년도","년","법정동","보증금액","아파트","월","월세금액","일","전용면적","지번","지역코드","층"]
       },
       "apt_trade": {
@@ -172,7 +172,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동","지번"],
+        "filter_output": [],
         "required_output_list": ["거래금액","건축년도","년","법정동","아파트","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
       },
       "apt_right": {
@@ -181,7 +181,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동","지번"],
+        "filter_output": [],
         "required_output_list": ["거래금액","년","단지","법정동","시군구","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
       },
       "multiple_housing_rent": {
@@ -190,7 +190,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동","지번"],
+          "filter_output": [],
         "required_output_list": ["건축년도","년","법정동","보증금액","연립다세대","월","월세금액","일","전용면적","지번","지역코드","층"]
       },
       "multiple_housing_trade": {
@@ -199,7 +199,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동","지번"],
+          "filter_output": [],
         "required_output_list": ["거래금액","건축년도","년","대지권면적","법정동","연립다세대","월","일","전용면적","지번","지역코드","층","해제사유발생일","해제여부"]
       },
       "single_housing_rent": {
@@ -208,7 +208,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동"],
+          "filter_output": [],
         "required_output_list": ["건축년도","계약면적","년","법정동","보증금액","월","월세금액","일","지역코드"]
       },
       "single_housing_trade": {
@@ -217,7 +217,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동"],
+          "filter_output": [],
         "required_output_list": ["거래금액","건축년도","년","대지면적","법정동","연면적","월","일","주택유형","지역코드","해제여부","해제사유발생일"]
       },
       "others_trade": {
@@ -226,7 +226,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동"],
+          "filter_output": [],
         "required_output_list": ["거래금액","건물면적","건물주용도","건축년도","년","대지면적","법정동","시군구","용도지역","월","유형","일","층","지역코드","해제여부","해제사유발생일"]
       },
       "land_trade": {
@@ -235,7 +235,7 @@
         "base_inputs": {
         },
         "required_input_list": ["LAWD_CD","DEAL_YMD"],
-          "filter_output": ["지역코드","법정동"],
+          "filter_output": [],
         "required_output_list": ["거래금액","거래면적","구분","년","법정동","시군구","용도지역","월","일","지목","지역코드","해제여부","해제사유발생일"]
       }
    }

@@ -40,6 +40,11 @@ class TransactionDataAgent:
             print('TransactionDataAgent> \033[91m{}'.format(
                 content) + '\033[0m')
 
+    def importantLog(self, content, echo):
+        self.echo = True
+        self.log(content)
+        self.echo = echo
+
     def _createKey(self, dict, key):
         if key not in dict.keys():
             dict[key] = []
@@ -76,41 +81,47 @@ class TransactionDataAgent:
             os.mkdir(dir_path)
         return dir_path
 
-    def _createTransactionDataTree(self, service_name, file_list):
+    def _createTransactionDataTree(self, service_name, dir_list):
         giant_data = {}
         code_gen = lat_lng_code_generator.LatLngCodeGenerator(service_name)
-        for file_name in file_list:
-            self.log("distribute data in file {}".format(file_name))
-            api_type = file_name.split(".")[0]
-            with open("{}/../data/bldg_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, file_name), "r", encoding="utf-8") as f:
-                data = json.load(f)
-            self.log("raw data length is {}.".format(len(data)))
-            for each_data in data:
-                id_data = self.id_generator.convert(api_type, each_data)
-                # self.log(id_data)
-                pnu = id_data["id"]
-                count = id_data["id_count"]
-                latlng = code_gen.get(pnu)
-                if latlng == -1:
-                    continue
-                lat, lng = latlng["lat_code"], latlng["lng_code"]
-                if lat not in giant_data.keys():
-                    giant_data[lat] = {}
-                if lng not in giant_data[lat].keys():
-                    giant_data[lat][lng] = {}
-                if pnu not in giant_data[lat][lng].keys():
-                    giant_data[lat][lng][pnu] = {
-                        "id": pnu, "service_name": service_name}
-                for each_key, each_val in each_data.items():
-                    giant_data[lat][lng][pnu][self.code_translator.translate(
-                        api_type, each_key)] = each_val
-            self.log("distribution of file {} finished.".format(file_name))
+        for dir_name in dir_list:
+            file_list = os.listdir(
+                "{}/../data/transaction_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, dir_name))
+            for file_name in file_list:
+                self.log("distribute data in file {}".format(file_name))
+                api_type = file_name.split(".")[0]
+                with open("{}/../data/transaction_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, file_name), "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                self.log("raw data length is {}.".format(len(data)))
+                for each_data in data:
+                    id_data = self.id_generator.convert(api_type, each_data)
+                    # self.log(id_data)
+                    pnu = id_data["id"]
+                    latlng = code_gen.get(pnu)
+                    if latlng == -1:
+                        continue
+                    lat, lng = latlng["lat_code"], latlng["lng_code"]
+                    if lat not in giant_data.keys():
+                        giant_data[lat] = {}
+                    if lng not in giant_data[lat].keys():
+                        giant_data[lat][lng] = {}
+                    if pnu not in giant_data[lat][lng].keys():
+                        giant_data[lat][lng][pnu] = {
+                            "id": pnu, "service_name": service_name}
+                    for each_key, each_val in each_data.items():
+                        giant_data[lat][lng][pnu][self.code_translator.translate(
+                            api_type, each_key)] = each_val
+                self.importantLog(
+                    "distribution of file {} finished.".format(file_name))
+            self.importantLog(
+                "distribution of dir {} finished.".format(dir_name))
 
     def distributeDataByLonLat(self, service_name):
-        file_list = os.listdir(
-            "{}/../data/bldg_data/raw/{}".format(os.path.dirname(__file__), service_name))
-        giant_data = self._createBldgDataTree(service_name, file_list)
-        file_path = "{}/../data/bldg_data".format(os.path.dirname(__file__))
+        dir_list = os.listdir(
+            "{}/../data/transaction_data/raw/{}".format(os.path.dirname(__file__), service_name))
+        giant_data = self._createTransactionDataTree(service_name, dir_list)
+        file_path = "{}/../data/transaction_data".format(
+            os.path.dirname(__file__))
         dist_file_path = self._createDir(file_path+"/dist")
         for lat, lat_data in giant_data.items():
             self._createDir(dist_file_path+"/"+lat)
@@ -126,9 +137,9 @@ class TransactionDataAgent:
         giant_data = {}
         key_list = []
         file_list = os.listdir(
-            "{}/../data/bldg_data/raw/{}".format(os.path.dirname(__file__), service_name))
+            "{}/../data/transaction_data/raw/{}".format(os.path.dirname(__file__), service_name))
         for file_name in file_list:
-            with open("{}/../data/bldg_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, file_name), "r", encoding="utf-8") as f:
+            with open("{}/../data/transaction_data/raw/{}/{}".format(os.path.dirname(__file__), service_name, file_name), "r", encoding="utf-8") as f:
                 data = json.load(f)
             for key in data[0].keys():
                 key_list.append(key)
@@ -148,7 +159,7 @@ class TransactionDataAgent:
             else:
                 scheme[key] = "str"
         dict_list = {"scheme": scheme, "data": giant_data}
-        with open("{}/../output/bldg_data_db_type.json".format(os.path.dirname(__file__)), "w", encoding="utf-8") as f:
+        with open("{}/../output/transaction_data_db_type.json".format(os.path.dirname(__file__)), "w", encoding="utf-8") as f:
             json.dump(dict_list, f, indent=4, ensure_ascii=False)
 
     def _getSeperatedPnuList(self, pnu_list):
@@ -191,7 +202,8 @@ class TransactionDataAgent:
         else:
             return str(int(year)+1) + '01'
 
-    def create(self, service_name_list, deal_ymd_start, deal_ymd_end):
+    def create(self, service_name_list, deal_ymd_start, deal_ymd_end, echo=True):
+        self.echo = echo
         if int(deal_ymd_end) <= int(deal_ymd_start) or int(deal_ymd_end[4:6]) > 12:
             self.errlog("wrong inputs.")
             return -1
@@ -199,17 +211,19 @@ class TransactionDataAgent:
         while deal_ymd != deal_ymd_end:
             for service in service_name_list:
                 self.createMonthData(service, deal_ymd)
-            self.log("data at ymd {} created successfully.".format(deal_ymd))
+            self.importantLog("{} data at ymd {} created successfully.".format(
+                service, deal_ymd), echo)
             deal_ymd = self._nextYMD(deal_ymd)
 
         # self.distributeDataByLonLatFullData()
-        self.log("data distributed successfully.")
+        self.importantLog("data distributed successfully.", echo)
 
 
 if __name__ == "__main__":
     transaction_data_agent = TransactionDataAgent()
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
-    transaction_data_agent.create(["TEST"], '201501', '202110')
-    # bldg_data_agent.distributeDataByLonLat("TEST")
+    transaction_data_agent.create(
+        ["CBD", "YBD", "GBD"], '200101', '201412', echo=False)
+    # transaction_data_agent.distributeDataByLonLat("TEST")
     # land_data_agent.createDBType("GBD")
-    # print(bldg_data_agent._getSeperatedPnu("1101202030"))
+    # print(transaction_data_agent._getSeperatedPnu("1101202030"))

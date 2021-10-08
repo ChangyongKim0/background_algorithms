@@ -117,6 +117,7 @@ class BldgDataAgent:
         file_list = os.listdir(
             "{}/../data/bldg_data/raw/{}".format(os.path.dirname(__file__), service_name))
         giant_data = self._createBldgDataTree(service_name, file_list)
+        # print(giant_data)
         file_path = "{}/../data/bldg_data".format(os.path.dirname(__file__))
         dist_file_path = self._createDir(file_path+"/dist")
         for lat, lat_data in giant_data.items():
@@ -135,7 +136,7 @@ class BldgDataAgent:
                             floor_list.append(floor_data)
                         bldg_data["floor_list"] = floor_list
                         bldg_list.append(bldg_data)
-                    pnu_data["bldg_list"] = bldg_list   
+                    pnu_data["bldg_list"] = bldg_list
                     pnu_list.append(pnu_data)
                 with open("{}/{}/{}.json".format(dist_file_path, lat, lng), "w", encoding="utf-8") as f:
                     json.dump(pnu_list, f, indent=4, ensure_ascii=False)
@@ -200,8 +201,8 @@ class BldgDataAgent:
                             '/../data/bldg_data/raw/{}'.format(service))
             self.get_api.getApi(
                 self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list)
-            # self.get_api_by_seperated_pnu.getApi(
-            #     self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list_seperated)
+            self.get_api_by_seperated_pnu.getApi(
+                self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list_seperated)
             self.distributeDataByLonLat(service)
         self.log("data successfully distributed")
 
@@ -211,7 +212,8 @@ if __name__ == "__main__":
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
     # bldg_data_agent.create(["YBD", "GBD", "CBD"])
     # bldg_data_agent.create(["TEST"])
-    bldg_data_agent.create(["GBD"])
+    bldg_data_agent.create(["CBD"])
+    # bldg_data_agent.distributeDataByLonLat("GBD")
     # bldg_data_agent.distributeDataByLonLat("TEST")
     # land_data_agent.createDBType("GBD")
     # print(bldg_data_agent._getSeperatedPnu("1101202030"))

@@ -59,7 +59,7 @@
         "NSDI:BULD_TOTAR": "BLYD_TOTAR",
         "NSDI:GROUND_FLOOR_CO": "BLYD_GFL",
         "NSDI:UNDGRND_FLOOR_CO": "BLYD_GFL",
-        "NSDI:FRST_REGIST_DT": "BLY_STD_DT"
+        "NSDI:FRST_REGIST_DT": "BLYD_STD_DT"
     },
     "bldg_title": {
         "mgmBldrgstPk": "BLRD_IDNTF",

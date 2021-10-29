@@ -134,29 +134,64 @@ class TransactionDataAgent:
             self.importantLog(
                 "distribution of dir {} finished.".format(dir_name))
 
-    def distributeDataByLonLat(self, service_name):
-        dir_list = os.listdir(
-            "{}/../data/transaction_data/raw/{}".format(os.path.dirname(__file__), service_name))
-        giant_data = self._createTransactionDataTree(service_name, dir_list)
-        file_path = "{}/../data/transaction_data".format(
-            os.path.dirname(__file__))
-        dist_file_path = self._createDir(file_path+"/dist")
+    def _distributeDataFromIntegratedFile(self, service_names):
+        code_gen_dict = {}
+        giant_data = {}
+        for service in service_names:
+            code_gen_dict[service] = lat_lng_code_generator.LatLngCodeGenerator(
+                service)
+        file_name = os.listdir(
+            "{}/../data/transaction_data/nondist".format(self.current_path))[0]
+        with open("{}/../data/transaction_data/nondist/{}".format(self.current_path, file_name), "r", encoding='utf-8') as json_file:
+            data = json.load(json_file)
+        for each_data in data:
+            if each_data["id"] == "unclassified":
+                continue
+            latlng = code_gen_dict[each_data["service_name"]].get(
+                each_data["id"])
+            if latlng == -1:
+                continue
+            lat, lng = latlng["lat_code"], latlng["lng_code"]
+            if lat not in giant_data.keys():
+                giant_data[lat] = {}
+                self._createDir(
+                    "{}/../data/transaction_data/dist/{}".format(self.current_path, lat))
+            if lng not in giant_data[lat].keys():
+                giant_data[lat][lng] = []
+            giant_data[lat][lng].append(each_data)
         for lat, lat_data in giant_data.items():
-            self._createDir(dist_file_path+"/"+lat)
-            for lng, lng_data in lat_data.items():
-                pnu_list = []
-                for pnu_data in lng_data.values():
-                    transaction_list = []
-                    for transaction_data in pnu_data["transaction_list"].values():
-                        estate_list = []
-                        for estate_data in transaction_data["estate_list"].values():
-                            estate_list.append(estate_data)
-                        transaction_data["estate_list"] = estate_list
-                        transaction_list.append(transaction_data)
-                    pnu_data["transaction_list"] = transaction_list
-                    pnu_list.append(pnu_data)
-                with open("{}/{}/{}.json".format(dist_file_path, lat, lng), "w", encoding="utf-8") as f:
+            for lng, pnu_list in lat_data.items():
+                with open("{}/../data/transaction_data/dist/{}/{}.json".format(self.current_path, lat, lng), "w", encoding="utf-8") as f:
                     json.dump(pnu_list, f, indent=4, ensure_ascii=False)
+        self.log("data from integrated file successfully distributed.")
+
+    def distributeDataByLonLat(self, service_name):
+        if type(service_name) == type([]):
+            self._distributeDataFromIntegratedFile(service_name)
+        else:
+            dir_list = os.listdir(
+                "{}/../data/transaction_data/raw/{}".format(os.path.dirname(__file__), service_name))
+            giant_data = self._createTransactionDataTree(
+                service_name, dir_list)
+            file_path = "{}/../data/transaction_data".format(
+                os.path.dirname(__file__))
+            dist_file_path = self._createDir(file_path+"/dist")
+            for lat, lat_data in giant_data.items():
+                self._createDir(dist_file_path+"/"+lat)
+                for lng, lng_data in lat_data.items():
+                    pnu_list = []
+                    for pnu_data in lng_data.values():
+                        transaction_list = []
+                        for transaction_data in pnu_data["transaction_list"].values():
+                            estate_list = []
+                            for estate_data in transaction_data["estate_list"].values():
+                                estate_list.append(estate_data)
+                            transaction_data["estate_list"] = estate_list
+                            transaction_list.append(transaction_data)
+                        pnu_data["transaction_list"] = transaction_list
+                        pnu_list.append(pnu_data)
+                    with open("{}/{}/{}.json".format(dist_file_path, lat, lng), "w", encoding="utf-8") as f:
+                        json.dump(pnu_list, f, indent=4, ensure_ascii=False)
 
     def createDBType(self, service_name):
         distribution_data = self._saveLatLngCodeData(service_name)
@@ -250,6 +285,6 @@ if __name__ == "__main__":
     # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
     # transaction_data_agent.create(
     #     ["CBD", "YBD", "GBD"], '200101', '201412', echo=False)
-    transaction_data_agent.distributeDataByLonLat("TEST")
+    transaction_data_agent.distributeDataByLonLat(["GBD", "YBD", "CBD"])
     # land_data_agent.createDBType("GBD")
     # print(transaction_data_agent._getSeperatedPnu("1101202030"))

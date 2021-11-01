@@ -116,7 +116,8 @@ class TrDataParser:
             filter_result['service_name'] = "No information"
         elif len(results) > 1:
             self.landFilter(transaction_item)
-            print(filter_result)
+            print("RESULT IS:", result)
+            print("FILTERED RESULT IS:", filter_result)
             return -1
         else:
             filter_results = self.database.queryFilter(

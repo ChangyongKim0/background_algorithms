@@ -39,6 +39,16 @@ class MapDataAgent:
             type, lon_code, lat_code))
         return data
 
+    def _getLonLatList(self):
+        lon_lat_list = {}
+        lon_list = os.listdir(
+            "{}/../data/land_data/dist".format(self.current_path))
+        for lon in lon_list:
+            lat_list = os.listdir(
+                "{}/../data/land_data/dist/{}".format(self.current_path, lon))
+            lon_lat_list[lon] = [lat.split(".")[0] for lat in lat_list]
+        return lon_lat_list
+
     # def createDBType(self, service_name):
     #     distribution_data = self._saveLatLngCodeData(service_name)
     #     giant_data = {}
@@ -68,49 +78,36 @@ class MapDataAgent:
     #     dict_list = {"scheme": scheme, "data": giant_data}
     #     with open("{}/../output/bldg_data_db_type.json".format(os.path.dirname(__file__)), "w", encoding="utf-8") as f:
     #         json.dump(dict_list, f, indent=4, ensure_ascii=False)
-    ["id", "service_name", "LND_SHAPE"]
-    ["id", transaction.list 중 id가 제일 큰거의 "NRG_DL_M", "NRF_DL_D", "NRG_AR_"]
-    ["id", "service_name", "MAP_SHAPE", MAP]
+    # ["id", "service_name", "LND_SHAPE"]
+    # ["id", transaction.list 중 id가 제일 큰거의 "NRG_DL_M", "NRF_DL_D", "NRG_AR_"]
+    # ["id", "service_name", "MAP_SHAPE", MAP]
     # MAP_LAT MAP_LON
 
-    def create(self, service_name_list):
+    def create(self):
         self._createDir(self.current_path+'/../data/map_data')
-        self._createDir(self.current_path+'/../data/map_data/raw')
-        config_data = self._getConfig("land_service")
-        for service in service_name_list:
-            input_list = []
-            input_list_seperated = []
-            for key, val in config_data[service]["organized_pnu_list"].items():
-                input_list.append(
-                    {"pnu": key, "filter_output": val})
-            sep_key_list = self._getSeperatedPnuList(
-                config_data[service]["organized_pnu_list"].keys())
-            for sep_key in sep_key_list:
-                input_list_seperated.append(
-                    {"sigunguCd": sep_key["sigunguCd"], "bjdongCd": sep_key["bjdongCd"]})
-            # self.log(input_list)
-            # self.log(input_list_seperated)
-            self._createDir(self.current_path +
-                            '/../data/bldg_data/raw/{}'.format(service))
-            self.get_api.getApi(
-                self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list)
-            self.get_api_by_seperated_pnu.getApi(
-                self.current_path+'/../data/bldg_data/raw/{}'.format(service), input_list_seperated)
-            self.distributeDataByLonLat(service)
+        lon_lat_list = self._getLonLatList()
+        for lon, lat_list in lon_lat_list.items():
+            self._createDir(self.current_path+'/../data/map_data/'+lon)
+            for lat in lat_list:
+                map_data = {}
+                land_data_list = self._loadData("land", lon, lat)
+                transaction_data_list = self._loadData("transaction", lon, lat)
+                for land_data in land_data_list:
+                    map_data[land_data["id"]] = {
+                        "id": land_data["id"], "sevice_name": land_data["service_name"], "LND_SHAPE": land_data["LND_SHAPE"]}
+                if transaction_data_list != -1:
+                    for transaction_data in transaction_data_list:
+                        map_data[transaction_data["id"]
+                                 ]["transaction_list"] = transaction_data["transaction_list"]
+                map_data = [*map_data.values()]
+                with open("{}/../data/map_data/{}/{}.json".format(self.current_path, lon, lat), "w", encoding="utf-8") as f:
+                    json.dump(map_data, f, indent=4, ensure_ascii=False)
         self.log("data successfully distributed")
 
 
 if __name__ == "__main__":
-    bldg_data_agent = MapDataAgent()
-    # print(land_data_agent.handleLandServiceConfigFromFile("pnu_list"))
-    # bldg_data_agent.create(["YBD", "GBD", "CBD"])
-    # bldg_data_agent.create(["TEST"])
-    # bldg_data_agent.create(["CBD"])
-    # bldg_data_agent.distributeDataByLonLat("GBD")
-    # bldg_data_agent.distributeDataByLonLat("CBD")
-    # bldg_data_agent.distributeDataByLonLat("YBD")
-    # bldg_data_agent.distributeDataByLonLat("TEST")
-    # land_data_agent.createDBType("GBD")
-    # print(bldg_data_agent._getSeperatedPnu("1101202030"))
-    bldg_data_agent._loadData("land", "50764", "15010")
-    bldg_data_agent._loadData("transaction", "50764", "15010")
+    map_data_agent = MapDataAgent()
+    # map_data_agent._loadData("land", "50764", "15010")
+    # map_data_agent._loadData("transaction", "50764", "15010")
+    # print(map_data_agent._getLonLatList())
+    map_data_agent.create()
